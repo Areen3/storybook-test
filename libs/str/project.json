@@ -1,0 +1,9 @@
+{
+  "name": "comp",
+  "$schema": "../../node_modules/nx/schemas/project-schema.json",
+  "sourceRoot": "libs/str/src",
+  "prefix": "storybook",
+  "tags": [],
+  "projectType": "library",
+  "targets": {}
+}
