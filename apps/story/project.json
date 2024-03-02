@@ -1,27 +1,23 @@
 {
-  "name": "storybook",
+  "name": "story",
   "$schema": "../../node_modules/nx/schemas/project-schema.json",
   "projectType": "application",
   "prefix": "storybook",
-  "sourceRoot": "apps/storybook/src",
+  "sourceRoot": "apps/story/src",
   "tags": [],
   "targets": {
     "build": {
       "executor": "@angular-devkit/build-angular:browser",
       "outputs": ["{options.outputPath}"],
       "options": {
-        "outputPath": "dist/apps/storybook",
-        "index": "apps/storybook/src/index.html",
-        "main": "apps/storybook/src/main.ts",
+        "outputPath": "dist/apps/story",
+        "index": "apps/story/src/index.html",
+        "main": "apps/story/src/main.ts",
         "polyfills": ["zone.js"],
-        "sourceMap": true,
-        "tsConfig": "apps/storybook/tsconfig.app.json",
+        "tsConfig": "apps/story/tsconfig.app.json",
         "inlineStyleLanguage": "scss",
-        "assets": [
-          "apps/storybook/src/favicon.ico",
-          "apps/storybook/src/assets"
-        ],
-        "styles": ["apps/storybook/src/styles.scss"],
+        "assets": ["apps/story/src/favicon.ico", "apps/story/src/assets"],
+        "styles": ["apps/story/src/styles.scss"],
         "scripts": []
       },
       "configurations": {
@@ -55,10 +51,10 @@
       "executor": "@angular-devkit/build-angular:dev-server",
       "configurations": {
         "production": {
-          "buildTarget": "storybook:build:production"
+          "buildTarget": "story:build:production"
         },
         "development": {
-          "buildTarget": "storybook:build:development"
+          "buildTarget": "story:build:development"
         }
       },
       "defaultConfiguration": "development"
@@ -66,13 +62,13 @@
     "extract-i18n": {
       "executor": "@angular-devkit/build-angular:extract-i18n",
       "options": {
-        "buildTarget": "storybook:build"
+        "buildTarget": "story:build"
       }
     },
     "serve-static": {
       "executor": "@nx/web:file-server",
       "options": {
-        "buildTarget": "storybook:build"
+        "buildTarget": "story:build"
       }
     }
   }

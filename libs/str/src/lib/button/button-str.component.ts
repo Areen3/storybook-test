@@ -1,17 +1,25 @@
 import { Component, EventEmitter, Input, Output } from '@angular/core';
-import { CommonModule } from '@angular/common';
+import { TestInput } from '@storybook/str2';
+
+
 
 @Component({
   selector: 'storybook-button-str',
-  standalone: true,
-  imports: [CommonModule],
-  template: '<button (click)="onClick()">{{label}}</button>',
-  styleUrl: './button-str.component.css',
+  templateUrl: './button-str.component.html',
+  styleUrl: './button-str.component.css'
 })
 export class ButtonStrComponent {
-  @Input() label: string = 'Button';
-  @Output() clicked: EventEmitter<void> = new EventEmitter<void>();
+  @Input() data: TestInput = {
+    name: 'Click me',
+    padding: 10
+  }
+  // @Input() text = 'Click me';
+  // @Input() padding = 10;
+  @Input() disabled = false;
+  @Output() onClicked: EventEmitter<string> = new EventEmitter<string>();
+
   onClick(): void {
-    this.clicked.emit();
+    this.onClicked.emit('data');
+    console.log('kliknięto');
   }
 }

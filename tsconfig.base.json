@@ -3,7 +3,8 @@
   "compilerOptions": {
     "rootDir": ".",
     "sourceMap": true,
-    "declaration": false,
+    "declaration": true,
+    "declarationMap": true,
     "moduleResolution": "node",
     "emitDecoratorMetadata": true,
     "experimentalDecorators": true,
@@ -16,7 +17,8 @@
     "baseUrl": ".",
     "paths": {
       "@storybook/comp": ["libs/str/src/index.ts"],
-      "@storybook/str": ["lib/str/src/index.ts"]
+      "@storybook/str": ["lib/str/src/index.ts"],
+      "@storybook/str2": ["libs/str2/src/index.ts"]
     }
   },
   "exclude": ["node_modules", "tmp"]

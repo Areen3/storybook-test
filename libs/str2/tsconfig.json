@@ -6,9 +6,6 @@
     "strict": true,
     "noImplicitOverride": true,
     "noPropertyAccessFromIndexSignature": true,
-    "sourceMap": true,
-    "declaration": true,
-    "declarationMap": true,
     "noImplicitReturns": true,
     "noFallthroughCasesInSwitch": true
   },
@@ -20,9 +17,6 @@
     },
     {
       "path": "./tsconfig.spec.json"
-    },
-    {
-      "path": "./.storybook/tsconfig.json"
     }
   ],
   "extends": "../../tsconfig.base.json",

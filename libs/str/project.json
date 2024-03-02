@@ -5,5 +5,70 @@
   "prefix": "storybook",
   "tags": [],
   "projectType": "library",
-  "targets": {}
+  "targets": {
+    "build": {
+      "executor": "@nx/angular:ng-packagr-lite",
+      "outputs": ["{workspaceRoot}/dist/{projectRoot}"],
+      "options": {
+        "project": "libs/str/ng-package.json",
+        "styles": ["libs/str/styles.css"]
+      },
+      "configurations": {
+        "production": {
+          "tsConfig": "libs/str/tsconfig.lib.prod.json"
+        },
+        "development": {
+          "tsConfig": "libs/str/tsconfig.lib.json"
+        }
+      },
+      "defaultConfiguration": "production"
+    },
+    "storybook": {
+      "executor": "@storybook/angular:start-storybook",
+      "options": {
+        "port": 4400,
+        "configDir": "libs/str/.storybook",
+        "browserTarget": "comp:build-storybook",
+        "compodoc": false
+      },
+      "configurations": {
+        "ci": {
+          "quiet": true
+        }
+      }
+    },
+    "build-storybook": {
+      "executor": "@storybook/angular:build-storybook",
+      "outputs": ["{options.outputDir}"],
+      "options": {
+        "outputDir": "dist/storybook/comp",
+        "configDir": "libs/str/.storybook",
+        "browserTarget": "comp:build-storybook",
+        "compodoc": false
+      },
+      "configurations": {
+        "ci": {
+          "quiet": true
+        }
+      }
+    },
+    "test-storybook": {
+      "executor": "nx:run-commands",
+      "options": {
+        "command": "test-storybook -c libs/str/.storybook --url=http://localhost:4400"
+      }
+    },
+    "static-storybook": {
+      "executor": "@nx/web:file-server",
+      "options": {
+        "buildTarget": "comp:build-storybook",
+        "staticFilePath": "dist/storybook/comp"
+      },
+      "configurations": {
+        "ci": {
+          "buildTarget": "comp:build-storybook:ci"
+        }
+      }
+    }
+  }
 }
