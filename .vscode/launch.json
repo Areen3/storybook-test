@@ -12,10 +12,17 @@
             "webRoot": "${workspaceFolder}"
         },
         {
-          "name": "Storybook Debug",
+          "name": "Storybook Debug VSC",
+          "type": "chrome",
+          "request": "attach",
+          "port": 9229,
+          "internalConsoleOptions": "openOnFirstSessionStart",
+        },
+        {
+          "name": "Storybook Debug VSC2",
           "type": "node-terminal",
           "request": "launch",
-          "command": "npx nx storybook comp",
+          "command": "nx storybook comp",
           "internalConsoleOptions": "openOnFirstSessionStart",
           "serverReadyAction": {
             "pattern": "Local:.+(https?://[^:]+:[0-9]+)",

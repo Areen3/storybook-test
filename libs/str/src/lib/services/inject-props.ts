@@ -1,6 +1,7 @@
 import { AngularRenderer } from '@storybook/angular';
 import { DecoratorFunction } from '@storybook/csf';
 import { APP_INITIALIZER, Injector } from '@angular/core';
+import { TestInput } from '@storybook/str2';
 export function injectInjectorToProps<TArgs = unknown>(): DecoratorFunction<AngularRenderer, TArgs> {
   return (storyFn) => {
     const story = storyFn();
@@ -21,5 +22,13 @@ export function injectInjectorToProps<TArgs = unknown>(): DecoratorFunction<Angu
     });
 
     return story;
+  };
+}
+
+
+export function getData(): TestInput {
+  return {
+    name: 'Click meXXX',
+    padding: 10
   };
 }

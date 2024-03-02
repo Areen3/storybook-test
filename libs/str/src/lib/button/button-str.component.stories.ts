@@ -1,16 +1,17 @@
-import { applicationConfig, type Meta, moduleMetadata, type StoryObj } from '@storybook/angular';
+import { applicationConfig, argsToTemplate, type Meta, moduleMetadata, type StoryObj } from '@storybook/angular';
 
 import { ButtonStrComponent } from './button-str.component';
 import { CommonModule } from '@angular/common';
-import { DataBuilder, Str2Module, TestInput } from '@storybook/str2';
-import { importProvidersFrom, Injector } from '@angular/core';
-import { injectInjectorToProps } from '../services/inject-props';
+import { Str2Module } from '@storybook/str2';
+import { importProvidersFrom } from '@angular/core';
+import { getData, injectInjectorToProps } from '../services/inject-props';
 import { action } from '@storybook/addon-actions';
-import { argsToTemplate } from '@storybook/angular';
+import { expect, within } from '@storybook/test';
 
 export const actionsData = {
   onClicked: action('onClicked')
 };
+
 
 const meta: Meta<ButtonStrComponent> = {
   component: ButtonStrComponent,
@@ -25,17 +26,12 @@ const meta: Meta<ButtonStrComponent> = {
       providers: [importProvidersFrom(Str2Module)]
     }),
     // use your injector here !!
-    injectInjectorToProps(),
+    injectInjectorToProps()
   ],
   render: (args: ButtonStrComponent) => ({
     props: {
       ...args,
-      // data:  {
-      //   name: 'Click mex',
-      //   padding: 10
-      // },
-      // disabled: false,
-      onClicked: actionsData.onClicked,
+      onClicked: actionsData.onClicked
       // getPropData: (injector: Injector) => {
       //   console.log('jestem2')
       //   // the injector is provided by the template and all services are now available
@@ -57,7 +53,7 @@ const meta: Meta<ButtonStrComponent> = {
 //         padding: 10
 //       },
 //       disabled: false,
-//       clicked: actionsData.clicked,
+//       clicked: actionsData.onClicked,
 //       // getPropData: (injector: Injector) => {
 //       //   console.log('jestem2')
 //       //   // the injector is provided by the template and all services are now available
@@ -66,8 +62,8 @@ const meta: Meta<ButtonStrComponent> = {
 //     },
 //     template: `
 //       <!-- Because the injector is part of the props, you can provide it to your function -->
-//       <!-- <storybook-button-str [data]="getPropData(injector)" [disabled]="false">/<storybook-button-str> -->
-//       <storybook-button-str ${argsToTemplate(args)}">/<storybook-button-str>
+//       <storybook-button-str [data]="getPropData(injector)" [disabled]="false">/<storybook-button-str>
+//       <!-- <storybook-button-str ${argsToTemplate(args)}>/<storybook-button-str>-->
 //     `
 //   })
 // };
@@ -78,35 +74,33 @@ type Story = StoryObj<ButtonStrComponent>;
 export const Primary: Story = {
   name: 'Moje story',
   args: {
-    data: {
-      name: 'Click me2',
-      padding: 10
-    },
+    data: getData(),
     disabled: false
   }
 };
 
-// export const Heading: Story = {
-//   args: {
-//     data: prepareArgs(),
-//     disabled: false,
-//   },
-//   play: async ({ canvasElement }) => {
-//     const canvas = within(canvasElement);
-//     expect(canvas.getByText(/Click me/)).toBeTruthy();
-//     expect(canvas.getByText(/Click me/)).toBeTruthy();
-//     console.log('test')
-//   },
-// };
+export const Heading: Story = {
+  args: {
+    data: getData(),
+    disabled: false
+  },
+  play: async ({ canvasElement }) => {
+    const canvas = within(canvasElement);
+    expect(canvas.getByText(/Click me/)).toBeTruthy();
+    expect(canvas.getByText(/Click me/)).toBeTruthy();
+    console.log('log fom button play');
+  }
+};
 
-// export const Heading2: Story = {
-//   args: {
-//     text: 'Click me!',
-//     padding: 10,
-//     disabled: false,
-//   },
-//   play: async ({ canvasElement }) => {
-//     const canvas = within(canvasElement);
-//     expect(canvas.getByText(/Click me/gi)).toBeTruthy();
-//   },
-// };
+export const Heading2: Story = {
+  args: {
+    data: getData(),
+    disabled: false
+  },
+  play: async ({ canvasElement }) => {
+    const canvas = within(canvasElement);
+    expect(canvas.getByText(/Click me/gi)).toBeTruthy();
+  }
+};
+
+

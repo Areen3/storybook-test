@@ -1,49 +1,6 @@
 {
     "pipes": [],
-    "interfaces": [
-        {
-            "name": "Task",
-            "id": "interface-Task-65fb90e4dc34d2734d4f266a9debe7f309cfdead4dabb2d9ae04d2644286a44dacb5bed4eefc28d89fdd07e80e4db044ff0f4172241de360b28eedb128cc15b8",
-            "file": "libs/str/src/lib/models/task.model.ts",
-            "deprecated": false,
-            "deprecationMessage": "",
-            "type": "interface",
-            "sourceCode": "export interface Task {\n  id?: string;\n  title?: string;\n  state?: string;\n}\n",
-            "properties": [
-                {
-                    "name": "id",
-                    "deprecated": false,
-                    "deprecationMessage": "",
-                    "type": "string",
-                    "optional": true,
-                    "description": "",
-                    "line": 2
-                },
-                {
-                    "name": "state",
-                    "deprecated": false,
-                    "deprecationMessage": "",
-                    "type": "string",
-                    "optional": true,
-                    "description": "",
-                    "line": 4
-                },
-                {
-                    "name": "title",
-                    "deprecated": false,
-                    "deprecationMessage": "",
-                    "type": "string",
-                    "optional": true,
-                    "description": "",
-                    "line": 3
-                }
-            ],
-            "indexSignatures": [],
-            "kind": 171,
-            "methods": [],
-            "extends": []
-        }
-    ],
+    "interfaces": [],
     "injectables": [],
     "guards": [],
     "interceptors": [],
@@ -126,69 +83,6 @@
             "stylesData": "",
             "extends": [],
             "templateData": "<button (click)=\"onClick()\" [disabled]=\"disabled\" [ngStyle]=\"{'padding.px': data.padding }\">'{{ data.name }}'</button>\r\n"
-        },
-        {
-            "name": "TaskComponent",
-            "id": "component-TaskComponent-a7cd847236fb54dcc33c897d663490c38510cbf41a9aed6b1bf4315438c9d095c82dfd65e0b18480fac7b76a2f1aeb0bf41a687fa49342e052fd4a5faee42882",
-            "file": "libs/str/src/lib/tasks/task.component.ts",
-            "encapsulation": [],
-            "entryComponents": [],
-            "inputs": [],
-            "outputs": [],
-            "providers": [],
-            "selector": "app-task",
-            "styleUrls": [],
-            "styles": [],
-            "template": "<div class=\"list-item {{ task?.state }}\">\n  <label\n    [attr.aria-label]=\"'archiveTask-' + task?.id\"\n    for=\"checked-{{ task?.id }}\"\n    class=\"checkbox\"\n  >\n    <input\n      type=\"checkbox\"\n      disabled=\"true\"\n      [defaultChecked]=\"task?.state === 'TASK_ARCHIVED'\"\n      name=\"checked-{{ task?.id }}\"\n      id=\"checked-{{ task?.id }}\"\n    />\n    <span class=\"checkbox-custom\" (click)=\"onArchive(task?.id)\"></span>\n  </label>\n  <label\n    [attr.aria-label]=\"task?.title + ''\"\n    for=\"title-{{ task?.id }}\"\n    class=\"title\"\n  >\n    <input\n      type=\"text\"\n      [value]=\"task?.title\"\n      readonly=\"true\"\n      id=\"title-{{ task?.id }}\"\n      name=\"title-{{ task?.id }}\"\n      placeholder=\"Input title\"\n      style=\"text-overflow: ellipsis;\"\n    />\n  </label>\n  <button\n    *ngIf=\"task?.state !== 'TASK_ARCHIVED'\"\n    class=\"pin-button\"\n    [attr.aria-label]=\"'pinTask-' + task?.id\"\n    (click)=\"onPin(task?.id)\"\n  >\n    <span class=\"icon-star\"></span>\n  </button>\n</div>\n",
-            "templateUrl": [],
-            "viewProviders": [],
-            "hostDirectives": [],
-            "inputsClass": [
-                {
-                    "name": "task",
-                    "deprecated": false,
-                    "deprecationMessage": "",
-                    "rawdescription": "\n\nThe shape of the task object\n",
-                    "description": "<p>The shape of the task object</p>\n",
-                    "line": 52,
-                    "type": "Task",
-                    "decorators": []
-                }
-            ],
-            "outputsClass": [
-                {
-                    "name": "onArchiveTask",
-                    "defaultValue": "new EventEmitter<Event>()",
-                    "deprecated": false,
-                    "deprecationMessage": "",
-                    "line": 60,
-                    "type": "EventEmitter"
-                },
-                {
-                    "name": "onPinTask",
-                    "defaultValue": "new EventEmitter<Event>()",
-                    "deprecated": false,
-                    "deprecationMessage": "",
-                    "line": 56,
-                    "type": "EventEmitter"
-                }
-            ],
-            "propertiesClass": [],
-            "methodsClass": [],
-            "deprecated": false,
-            "deprecationMessage": "",
-            "hostBindings": [],
-            "hostListeners": [],
-            "standalone": false,
-            "imports": [],
-            "description": "",
-            "rawdescription": "\n",
-            "type": "component",
-            "sourceCode": "import { Component, Input, Output, EventEmitter } from '@angular/core';\nimport { Task } from '../models/task.model';\n\n@Component({\n  selector: 'app-task',\n  template: `\n    <div class=\"list-item {{ task?.state }}\">\n      <label\n        [attr.aria-label]=\"'archiveTask-' + task?.id\"\n        for=\"checked-{{ task?.id }}\"\n        class=\"checkbox\"\n      >\n        <input\n          type=\"checkbox\"\n          disabled=\"true\"\n          [defaultChecked]=\"task?.state === 'TASK_ARCHIVED'\"\n          name=\"checked-{{ task?.id }}\"\n          id=\"checked-{{ task?.id }}\"\n        />\n        <span class=\"checkbox-custom\" (click)=\"onArchive(task?.id)\"></span>\n      </label>\n      <label\n        [attr.aria-label]=\"task?.title + ''\"\n        for=\"title-{{ task?.id }}\"\n        class=\"title\"\n      >\n        <input\n          type=\"text\"\n          [value]=\"task?.title\"\n          readonly=\"true\"\n          id=\"title-{{ task?.id }}\"\n          name=\"title-{{ task?.id }}\"\n          placeholder=\"Input title\"\n          style=\"text-overflow: ellipsis;\"\n        />\n      </label>\n      <button\n        *ngIf=\"task?.state !== 'TASK_ARCHIVED'\"\n        class=\"pin-button\"\n        [attr.aria-label]=\"'pinTask-' + task?.id\"\n        (click)=\"onPin(task?.id)\"\n      >\n        <span class=\"icon-star\"></span>\n      </button>\n    </div>\n  `,\n})\nexport default class TaskComponent {\n  /**\n   * The shape of the task object\n   */\n  @Input() task?: Task;\n\n  // tslint:disable-next-line: no-output-on-prefix\n  @Output()\n  onPinTask = new EventEmitter<Event>();\n\n  // tslint:disable-next-line: no-output-on-prefix\n  @Output()\n  onArchiveTask = new EventEmitter<Event>();\n\n  /**\n   * @ignore\n   * Component method to trigger the onPin event\n   * @param id string\n   */\n  onPin(id: any) {\n    console.log('onPin')\n    this.onPinTask.emit(id);\n  }\n  /**\n   * @ignore\n   * Component method to trigger the onArchive event\n   * @param id string\n   */\n  onArchive(id: any) {\n    console.log('onAchrive')\n    this.onArchiveTask.emit(id);\n  }\n}\n",
-            "assetsDirs": [],
-            "styleUrlsData": "",
-            "stylesData": "",
-            "extends": []
         }
     ],
     "modules": [
@@ -250,26 +144,6 @@
                 "defaultValue": "{\n  onClicked: action('onClicked')\n}"
             },
             {
-                "name": "actionsData",
-                "ctype": "miscellaneous",
-                "subtype": "variable",
-                "file": "libs/str/src/lib/tasks/task.stories.ts",
-                "deprecated": false,
-                "deprecationMessage": "",
-                "type": "object",
-                "defaultValue": "{\n  onPinTask: action('onPinTask'),\n  onArchiveTask: action('onArchiveTask'),\n}"
-            },
-            {
-                "name": "Archived",
-                "ctype": "miscellaneous",
-                "subtype": "variable",
-                "file": "libs/str/src/lib/tasks/task.stories.ts",
-                "deprecated": false,
-                "deprecationMessage": "",
-                "type": "Story",
-                "defaultValue": "{\n  args: {\n    task: {\n      ...Default.args?.task,\n      state: 'TASK_ARCHIVED',\n    },\n  },\n}"
-            },
-            {
                 "name": "config",
                 "ctype": "miscellaneous",
                 "subtype": "variable",
@@ -280,34 +154,24 @@
                 "defaultValue": "{\n  stories: ['../src/lib/**/*.stories.@(js|jsx|ts|tsx|mdx)'],\n  addons: [\n    '@storybook/addon-links',\n    '@storybook/addon-essentials',\n    '@storybook/addon-interactions',\n    '@storybook/addon-a11y',],\n  framework: {\n    name: '@storybook/angular',\n    options: {},\n  },\n  docs: {\n    autodocs: 'tag',\n    defaultName: 'Docs',\n  },\n}"
             },
             {
-                "name": "Default",
+                "name": "Heading",
                 "ctype": "miscellaneous",
                 "subtype": "variable",
-                "file": "libs/str/src/lib/tasks/task.stories.ts",
+                "file": "libs/str/src/lib/button/button-str.component.stories.ts",
                 "deprecated": false,
                 "deprecationMessage": "",
                 "type": "Story",
-                "defaultValue": "{\n  args: {\n    task: {\n      id: '1',\n      title: 'Test Task',\n      state: 'TASK_INBOX',\n    },\n  },\n}"
+                "defaultValue": "{\n  args: {\n    data: getData(),\n    disabled: false,\n  },\n  play: async ({ canvasElement }) => {\n    const canvas = within(canvasElement);\n    expect(canvas.getByText(/Click me/)).toBeTruthy();\n    expect(canvas.getByText(/Click me/)).toBeTruthy();\n    console.log('log fom button play')\n  },\n}"
             },
             {
-                "name": "LongTitle",
+                "name": "Heading2",
                 "ctype": "miscellaneous",
                 "subtype": "variable",
-                "file": "libs/str/src/lib/tasks/task.stories.ts",
+                "file": "libs/str/src/lib/button/button-str.component.stories.ts",
                 "deprecated": false,
                 "deprecationMessage": "",
                 "type": "Story",
-                "defaultValue": "{\n  args: {\n    task: {\n      ...Default.args?.task,\n      title: longTitleString,\n    },\n  },\n}"
-            },
-            {
-                "name": "longTitleString",
-                "ctype": "miscellaneous",
-                "subtype": "variable",
-                "file": "libs/str/src/lib/tasks/task.stories.ts",
-                "deprecated": false,
-                "deprecationMessage": "",
-                "type": "",
-                "defaultValue": "`This task's name is absurdly large. In fact, I think if I keep going I might end up with content overflow. What will happen? The star that represents a pinned task could have text overlapping. The text could cut-off abruptly when it reaches the star. I hope not!`"
+                "defaultValue": "{\n  args: {\n    data: getData(),\n    disabled: false,\n  },\n  play: async ({ canvasElement }) => {\n    const canvas = within(canvasElement);\n    expect(canvas.getByText(/Click me/gi)).toBeTruthy();\n  },\n}"
             },
             {
                 "name": "meta",
@@ -317,27 +181,7 @@
                 "deprecated": false,
                 "deprecationMessage": "",
                 "type": "Meta<ButtonStrComponent>",
-                "defaultValue": "{\n  component: ButtonStrComponent,\n  title: 'MyButtonComponent',\n  tags: ['autodocs'],\n  excludeStories: /.*Data$/,\n  decorators: [\n    moduleMetadata({\n      imports: [CommonModule, Str2Module]\n    }),\n    applicationConfig({\n      providers: [importProvidersFrom(Str2Module)]\n    }),\n    // use your injector here !!\n    injectInjectorToProps(),\n  ],\n  render: (args: ButtonStrComponent) => ({\n    props: {\n      ...args,\n      // data:  {\n      //   name: 'Click mex',\n      //   padding: 10\n      // },\n      // disabled: false,\n      onClicked: actionsData.onClicked,\n      // getPropData: (injector: Injector) => {\n      //   console.log('jestem2')\n      //   // the injector is provided by the template and all services are now available\n      //   return injector.get(DataBuilder).getData();\n      // }\n    },\n    template: `<storybook-button-str ${argsToTemplate(args)}>/<storybook-button-str>`\n  })\n}"
-            },
-            {
-                "name": "meta",
-                "ctype": "miscellaneous",
-                "subtype": "variable",
-                "file": "libs/str/src/lib/tasks/task.stories.ts",
-                "deprecated": false,
-                "deprecationMessage": "",
-                "type": "Meta<TaskComponent>",
-                "defaultValue": "{\n  title: 'Task',\n  component: TaskComponent,\n  excludeStories: /.*Data$/,\n  tags: ['autodocs'],\n  render: (args: TaskComponent) => ({\n    props: {\n      ...args,\n      onPinTask: actionsData.onPinTask,\n      onArchiveTask: actionsData.onArchiveTask,\n    },\n    template: `<app-task ${argsToTemplate(args)}></app-task>`,\n  }),\n}"
-            },
-            {
-                "name": "Pinned",
-                "ctype": "miscellaneous",
-                "subtype": "variable",
-                "file": "libs/str/src/lib/tasks/task.stories.ts",
-                "deprecated": false,
-                "deprecationMessage": "",
-                "type": "Story",
-                "defaultValue": "{\n  args: {\n    task: {\n      ...Default.args?.task,\n      state: 'TASK_PINNED',\n    },\n  },\n}"
+                "defaultValue": "{\n  component: ButtonStrComponent,\n  title: 'MyButtonComponent',\n  tags: ['autodocs'],\n  excludeStories: /.*Data$/,\n  decorators: [\n    moduleMetadata({\n      imports: [CommonModule, Str2Module]\n    }),\n    applicationConfig({\n      providers: [importProvidersFrom(Str2Module)]\n    }),\n    // use your injector here !!\n    injectInjectorToProps(),\n  ],\n  render: (args: ButtonStrComponent) => ({\n    props: {\n      ...args,\n      // onClicked: actionsData.onClicked,\n      // getPropData: (injector: Injector) => {\n      //   console.log('jestem2')\n      //   // the injector is provided by the template and all services are now available\n      //   return injector.get(DataBuilder).getData();\n      // }\n    }\n    // template: `<storybook-button-str ${argsToTemplate(args)}>/<storybook-button-str>`\n  })\n}"
             },
             {
                 "name": "preview",
@@ -357,10 +201,21 @@
                 "deprecated": false,
                 "deprecationMessage": "",
                 "type": "Story",
-                "defaultValue": "{\n  name: 'Moje story',\n  args: {\n    data: {\n      name: 'Click me2',\n      padding: 10\n    },\n    disabled: false\n  }\n}"
+                "defaultValue": "{\n  name: 'Moje story',\n  args: {\n    data: getData(),\n    disabled: false\n  }\n}"
             }
         ],
         "functions": [
+            {
+                "name": "getData",
+                "file": "libs/str/src/lib/services/inject-props.ts",
+                "ctype": "miscellaneous",
+                "subtype": "function",
+                "deprecated": false,
+                "deprecationMessage": "",
+                "description": "",
+                "args": [],
+                "returnType": "TestInput"
+            },
             {
                 "name": "injectInjectorToProps",
                 "file": "libs/str/src/lib/services/inject-props.ts",
@@ -371,6 +226,50 @@
                 "description": "",
                 "args": [],
                 "returnType": "DecoratorFunction<AngularRenderer, TArgs>"
+            },
+            {
+                "name": "spreedData",
+                "file": "libs/str/src/lib/button/button-str.component.stories.ts",
+                "ctype": "miscellaneous",
+                "subtype": "function",
+                "deprecated": false,
+                "deprecationMessage": "",
+                "description": "",
+                "args": [
+                    {
+                        "name": "data",
+                        "type": "TestInput",
+                        "deprecated": false,
+                        "deprecationMessage": ""
+                    },
+                    {
+                        "name": "args",
+                        "type": "TestInput",
+                        "deprecated": false,
+                        "deprecationMessage": ""
+                    }
+                ],
+                "returnType": "TestInput",
+                "jsdoctags": [
+                    {
+                        "name": "data",
+                        "type": "TestInput",
+                        "deprecated": false,
+                        "deprecationMessage": "",
+                        "tagName": {
+                            "text": "param"
+                        }
+                    },
+                    {
+                        "name": "args",
+                        "type": "TestInput",
+                        "deprecated": false,
+                        "deprecationMessage": "",
+                        "tagName": {
+                            "text": "param"
+                        }
+                    }
+                ]
             }
         ],
         "typealiases": [
@@ -380,17 +279,6 @@
                 "subtype": "typealias",
                 "rawtype": "StoryObj<ButtonStrComponent>",
                 "file": "libs/str/src/lib/button/button-str.component.stories.ts",
-                "deprecated": false,
-                "deprecationMessage": "",
-                "description": "",
-                "kind": 183
-            },
-            {
-                "name": "Story",
-                "ctype": "miscellaneous",
-                "subtype": "typealias",
-                "rawtype": "StoryObj<TaskComponent>",
-                "file": "libs/str/src/lib/tasks/task.stories.ts",
                 "deprecated": false,
                 "deprecationMessage": "",
                 "description": "",
@@ -411,6 +299,26 @@
                     "defaultValue": "{\n  onClicked: action('onClicked')\n}"
                 },
                 {
+                    "name": "Heading",
+                    "ctype": "miscellaneous",
+                    "subtype": "variable",
+                    "file": "libs/str/src/lib/button/button-str.component.stories.ts",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "Story",
+                    "defaultValue": "{\n  args: {\n    data: getData(),\n    disabled: false,\n  },\n  play: async ({ canvasElement }) => {\n    const canvas = within(canvasElement);\n    expect(canvas.getByText(/Click me/)).toBeTruthy();\n    expect(canvas.getByText(/Click me/)).toBeTruthy();\n    console.log('log fom button play')\n  },\n}"
+                },
+                {
+                    "name": "Heading2",
+                    "ctype": "miscellaneous",
+                    "subtype": "variable",
+                    "file": "libs/str/src/lib/button/button-str.component.stories.ts",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "Story",
+                    "defaultValue": "{\n  args: {\n    data: getData(),\n    disabled: false,\n  },\n  play: async ({ canvasElement }) => {\n    const canvas = within(canvasElement);\n    expect(canvas.getByText(/Click me/gi)).toBeTruthy();\n  },\n}"
+                },
+                {
                     "name": "meta",
                     "ctype": "miscellaneous",
                     "subtype": "variable",
@@ -418,7 +326,7 @@
                     "deprecated": false,
                     "deprecationMessage": "",
                     "type": "Meta<ButtonStrComponent>",
-                    "defaultValue": "{\n  component: ButtonStrComponent,\n  title: 'MyButtonComponent',\n  tags: ['autodocs'],\n  excludeStories: /.*Data$/,\n  decorators: [\n    moduleMetadata({\n      imports: [CommonModule, Str2Module]\n    }),\n    applicationConfig({\n      providers: [importProvidersFrom(Str2Module)]\n    }),\n    // use your injector here !!\n    injectInjectorToProps(),\n  ],\n  render: (args: ButtonStrComponent) => ({\n    props: {\n      ...args,\n      // data:  {\n      //   name: 'Click mex',\n      //   padding: 10\n      // },\n      // disabled: false,\n      onClicked: actionsData.onClicked,\n      // getPropData: (injector: Injector) => {\n      //   console.log('jestem2')\n      //   // the injector is provided by the template and all services are now available\n      //   return injector.get(DataBuilder).getData();\n      // }\n    },\n    template: `<storybook-button-str ${argsToTemplate(args)}>/<storybook-button-str>`\n  })\n}"
+                    "defaultValue": "{\n  component: ButtonStrComponent,\n  title: 'MyButtonComponent',\n  tags: ['autodocs'],\n  excludeStories: /.*Data$/,\n  decorators: [\n    moduleMetadata({\n      imports: [CommonModule, Str2Module]\n    }),\n    applicationConfig({\n      providers: [importProvidersFrom(Str2Module)]\n    }),\n    // use your injector here !!\n    injectInjectorToProps(),\n  ],\n  render: (args: ButtonStrComponent) => ({\n    props: {\n      ...args,\n      // onClicked: actionsData.onClicked,\n      // getPropData: (injector: Injector) => {\n      //   console.log('jestem2')\n      //   // the injector is provided by the template and all services are now available\n      //   return injector.get(DataBuilder).getData();\n      // }\n    }\n    // template: `<storybook-button-str ${argsToTemplate(args)}>/<storybook-button-str>`\n  })\n}"
                 },
                 {
                     "name": "Primary",
@@ -428,79 +336,7 @@
                     "deprecated": false,
                     "deprecationMessage": "",
                     "type": "Story",
-                    "defaultValue": "{\n  name: 'Moje story',\n  args: {\n    data: {\n      name: 'Click me2',\n      padding: 10\n    },\n    disabled: false\n  }\n}"
-                }
-            ],
-            "libs/str/src/lib/tasks/task.stories.ts": [
-                {
-                    "name": "actionsData",
-                    "ctype": "miscellaneous",
-                    "subtype": "variable",
-                    "file": "libs/str/src/lib/tasks/task.stories.ts",
-                    "deprecated": false,
-                    "deprecationMessage": "",
-                    "type": "object",
-                    "defaultValue": "{\n  onPinTask: action('onPinTask'),\n  onArchiveTask: action('onArchiveTask'),\n}"
-                },
-                {
-                    "name": "Archived",
-                    "ctype": "miscellaneous",
-                    "subtype": "variable",
-                    "file": "libs/str/src/lib/tasks/task.stories.ts",
-                    "deprecated": false,
-                    "deprecationMessage": "",
-                    "type": "Story",
-                    "defaultValue": "{\n  args: {\n    task: {\n      ...Default.args?.task,\n      state: 'TASK_ARCHIVED',\n    },\n  },\n}"
-                },
-                {
-                    "name": "Default",
-                    "ctype": "miscellaneous",
-                    "subtype": "variable",
-                    "file": "libs/str/src/lib/tasks/task.stories.ts",
-                    "deprecated": false,
-                    "deprecationMessage": "",
-                    "type": "Story",
-                    "defaultValue": "{\n  args: {\n    task: {\n      id: '1',\n      title: 'Test Task',\n      state: 'TASK_INBOX',\n    },\n  },\n}"
-                },
-                {
-                    "name": "LongTitle",
-                    "ctype": "miscellaneous",
-                    "subtype": "variable",
-                    "file": "libs/str/src/lib/tasks/task.stories.ts",
-                    "deprecated": false,
-                    "deprecationMessage": "",
-                    "type": "Story",
-                    "defaultValue": "{\n  args: {\n    task: {\n      ...Default.args?.task,\n      title: longTitleString,\n    },\n  },\n}"
-                },
-                {
-                    "name": "longTitleString",
-                    "ctype": "miscellaneous",
-                    "subtype": "variable",
-                    "file": "libs/str/src/lib/tasks/task.stories.ts",
-                    "deprecated": false,
-                    "deprecationMessage": "",
-                    "type": "",
-                    "defaultValue": "`This task's name is absurdly large. In fact, I think if I keep going I might end up with content overflow. What will happen? The star that represents a pinned task could have text overlapping. The text could cut-off abruptly when it reaches the star. I hope not!`"
-                },
-                {
-                    "name": "meta",
-                    "ctype": "miscellaneous",
-                    "subtype": "variable",
-                    "file": "libs/str/src/lib/tasks/task.stories.ts",
-                    "deprecated": false,
-                    "deprecationMessage": "",
-                    "type": "Meta<TaskComponent>",
-                    "defaultValue": "{\n  title: 'Task',\n  component: TaskComponent,\n  excludeStories: /.*Data$/,\n  tags: ['autodocs'],\n  render: (args: TaskComponent) => ({\n    props: {\n      ...args,\n      onPinTask: actionsData.onPinTask,\n      onArchiveTask: actionsData.onArchiveTask,\n    },\n    template: `<app-task ${argsToTemplate(args)}></app-task>`,\n  }),\n}"
-                },
-                {
-                    "name": "Pinned",
-                    "ctype": "miscellaneous",
-                    "subtype": "variable",
-                    "file": "libs/str/src/lib/tasks/task.stories.ts",
-                    "deprecated": false,
-                    "deprecationMessage": "",
-                    "type": "Story",
-                    "defaultValue": "{\n  args: {\n    task: {\n      ...Default.args?.task,\n      state: 'TASK_PINNED',\n    },\n  },\n}"
+                    "defaultValue": "{\n  name: 'Moje story',\n  args: {\n    data: getData(),\n    disabled: false\n  }\n}"
                 }
             ],
             "libs/str/.storybook/main.ts": [
@@ -531,6 +367,17 @@
         "groupedFunctions": {
             "libs/str/src/lib/services/inject-props.ts": [
                 {
+                    "name": "getData",
+                    "file": "libs/str/src/lib/services/inject-props.ts",
+                    "ctype": "miscellaneous",
+                    "subtype": "function",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "description": "",
+                    "args": [],
+                    "returnType": "TestInput"
+                },
+                {
                     "name": "injectInjectorToProps",
                     "file": "libs/str/src/lib/services/inject-props.ts",
                     "ctype": "miscellaneous",
@@ -540,6 +387,52 @@
                     "description": "",
                     "args": [],
                     "returnType": "DecoratorFunction<AngularRenderer, TArgs>"
+                }
+            ],
+            "libs/str/src/lib/button/button-str.component.stories.ts": [
+                {
+                    "name": "spreedData",
+                    "file": "libs/str/src/lib/button/button-str.component.stories.ts",
+                    "ctype": "miscellaneous",
+                    "subtype": "function",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "description": "",
+                    "args": [
+                        {
+                            "name": "data",
+                            "type": "TestInput",
+                            "deprecated": false,
+                            "deprecationMessage": ""
+                        },
+                        {
+                            "name": "args",
+                            "type": "TestInput",
+                            "deprecated": false,
+                            "deprecationMessage": ""
+                        }
+                    ],
+                    "returnType": "TestInput",
+                    "jsdoctags": [
+                        {
+                            "name": "data",
+                            "type": "TestInput",
+                            "deprecated": false,
+                            "deprecationMessage": "",
+                            "tagName": {
+                                "text": "param"
+                            }
+                        },
+                        {
+                            "name": "args",
+                            "type": "TestInput",
+                            "deprecated": false,
+                            "deprecationMessage": "",
+                            "tagName": {
+                                "text": "param"
+                            }
+                        }
+                    ]
                 }
             ]
         },
@@ -557,25 +450,12 @@
                     "description": "",
                     "kind": 183
                 }
-            ],
-            "libs/str/src/lib/tasks/task.stories.ts": [
-                {
-                    "name": "Story",
-                    "ctype": "miscellaneous",
-                    "subtype": "typealias",
-                    "rawtype": "StoryObj<TaskComponent>",
-                    "file": "libs/str/src/lib/tasks/task.stories.ts",
-                    "deprecated": false,
-                    "deprecationMessage": "",
-                    "description": "",
-                    "kind": 183
-                }
             ]
         }
     },
     "routes": [],
     "coverage": {
-        "count": 1,
+        "count": 0,
         "status": "low",
         "files": [
             {
@@ -600,10 +480,40 @@
             },
             {
                 "filePath": "libs/str/src/lib/button/button-str.component.stories.ts",
+                "type": "function",
+                "linktype": "miscellaneous",
+                "linksubtype": "function",
+                "name": "spreedData",
+                "coveragePercent": 0,
+                "coverageCount": "0/1",
+                "status": "low"
+            },
+            {
+                "filePath": "libs/str/src/lib/button/button-str.component.stories.ts",
                 "type": "variable",
                 "linktype": "miscellaneous",
                 "linksubtype": "variable",
                 "name": "actionsData",
+                "coveragePercent": 0,
+                "coverageCount": "0/1",
+                "status": "low"
+            },
+            {
+                "filePath": "libs/str/src/lib/button/button-str.component.stories.ts",
+                "type": "variable",
+                "linktype": "miscellaneous",
+                "linksubtype": "variable",
+                "name": "Heading",
+                "coveragePercent": 0,
+                "coverageCount": "0/1",
+                "status": "low"
+            },
+            {
+                "filePath": "libs/str/src/lib/button/button-str.component.stories.ts",
+                "type": "variable",
+                "linktype": "miscellaneous",
+                "linksubtype": "variable",
+                "name": "Heading2",
                 "coveragePercent": 0,
                 "coverageCount": "0/1",
                 "status": "low"
@@ -638,12 +548,13 @@
                 "status": "low"
             },
             {
-                "filePath": "libs/str/src/lib/models/task.model.ts",
-                "type": "interface",
-                "linktype": "interface",
-                "name": "Task",
+                "filePath": "libs/str/src/lib/services/inject-props.ts",
+                "type": "function",
+                "linktype": "miscellaneous",
+                "linksubtype": "function",
+                "name": "getData",
                 "coveragePercent": 0,
-                "coverageCount": "0/4",
+                "coverageCount": "0/1",
                 "status": "low"
             },
             {
@@ -652,85 +563,6 @@
                 "linktype": "miscellaneous",
                 "linksubtype": "function",
                 "name": "injectInjectorToProps",
-                "coveragePercent": 0,
-                "coverageCount": "0/1",
-                "status": "low"
-            },
-            {
-                "filePath": "libs/str/src/lib/tasks/task.component.ts",
-                "type": "component",
-                "linktype": "component",
-                "name": "TaskComponent",
-                "coveragePercent": 25,
-                "coverageCount": "1/4",
-                "status": "low"
-            },
-            {
-                "filePath": "libs/str/src/lib/tasks/task.stories.ts",
-                "type": "variable",
-                "linktype": "miscellaneous",
-                "linksubtype": "variable",
-                "name": "actionsData",
-                "coveragePercent": 0,
-                "coverageCount": "0/1",
-                "status": "low"
-            },
-            {
-                "filePath": "libs/str/src/lib/tasks/task.stories.ts",
-                "type": "variable",
-                "linktype": "miscellaneous",
-                "linksubtype": "variable",
-                "name": "Archived",
-                "coveragePercent": 0,
-                "coverageCount": "0/1",
-                "status": "low"
-            },
-            {
-                "filePath": "libs/str/src/lib/tasks/task.stories.ts",
-                "type": "variable",
-                "linktype": "miscellaneous",
-                "linksubtype": "variable",
-                "name": "Default",
-                "coveragePercent": 0,
-                "coverageCount": "0/1",
-                "status": "low"
-            },
-            {
-                "filePath": "libs/str/src/lib/tasks/task.stories.ts",
-                "type": "variable",
-                "linktype": "miscellaneous",
-                "linksubtype": "variable",
-                "name": "LongTitle",
-                "coveragePercent": 0,
-                "coverageCount": "0/1",
-                "status": "low"
-            },
-            {
-                "filePath": "libs/str/src/lib/tasks/task.stories.ts",
-                "type": "variable",
-                "linktype": "miscellaneous",
-                "linksubtype": "variable",
-                "name": "longTitleString",
-                "coveragePercent": 0,
-                "coverageCount": "0/1",
-                "status": "low"
-            },
-            {
-                "filePath": "libs/str/src/lib/tasks/task.stories.ts",
-                "type": "variable",
-                "linktype": "miscellaneous",
-                "linksubtype": "variable",
-                "name": "meta",
-                "coveragePercent": 0,
-                "coverageCount": "0/1",
-                "status": "low"
-            },
-            {
-                "filePath": "libs/str/src/lib/tasks/task.stories.ts",
-                "type": "variable",
-                "linktype": "miscellaneous",
-                "linksubtype": "variable",
-                "name": "Pinned",
                 "coveragePercent": 0,
                 "coverageCount": "0/1",
                 "status": "low"
