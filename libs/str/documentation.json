@@ -8,8 +8,165 @@
     "directives": [],
     "components": [
         {
+            "name": "ButtonComponent",
+            "id": "component-ButtonComponent-d5361ebb08484bf6cef7a0a5fb1f5ee36b3693e19009d17e90395021879dbc9938b042f8342e73c0b731e77d791ef34d2fc3bf7d02317f3023f77bf32a865fd4",
+            "file": "libs/str/src/lib/button-org/button.component.ts",
+            "encapsulation": [],
+            "entryComponents": [],
+            "inputs": [],
+            "outputs": [],
+            "providers": [],
+            "selector": "storybook-button",
+            "styleUrls": [
+                "./button.css"
+            ],
+            "styles": [],
+            "template": "<button   type=\"button\"\n   (click)=\"myClick($event)\"\n   [ngClass]=\"classes\"\n   [ngStyle]=\"{ 'background-color': backgroundColor }\"\n >\n   {{ label }}\n </button>",
+            "templateUrl": [],
+            "viewProviders": [],
+            "hostDirectives": [],
+            "inputsClass": [
+                {
+                    "name": "backgroundColor",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "rawdescription": "\n\nWhat background color to use\n",
+                    "description": "<p>What background color to use</p>\n",
+                    "line": 28,
+                    "type": "string",
+                    "decorators": []
+                },
+                {
+                    "name": "label",
+                    "defaultValue": "'Button'",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "jsdoctags": [
+                        {
+                            "pos": 784,
+                            "end": 797,
+                            "flags": 16842752,
+                            "modifierFlagsCache": 0,
+                            "transformFlags": 0,
+                            "kind": 334,
+                            "tagName": {
+                                "pos": 785,
+                                "end": 793,
+                                "flags": 16842752,
+                                "modifierFlagsCache": 0,
+                                "transformFlags": 0,
+                                "kind": 80,
+                                "escapedText": "required"
+                            },
+                            "comment": ""
+                        }
+                    ],
+                    "rawdescription": "\n\nButton contents\n\n",
+                    "description": "<p>Button contents</p>\n",
+                    "line": 42,
+                    "type": "string",
+                    "decorators": []
+                },
+                {
+                    "name": "primary",
+                    "defaultValue": "false",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "rawdescription": "\n\nIs this the principal call to action on the page?\n",
+                    "description": "<p>Is this the principal call to action on the page?</p>\n",
+                    "line": 22,
+                    "type": "boolean",
+                    "decorators": []
+                },
+                {
+                    "name": "size",
+                    "defaultValue": "'medium'",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "rawdescription": "\n\nHow large should the button be?\n",
+                    "description": "<p>How large should the button be?</p>\n",
+                    "line": 34,
+                    "type": "\"small\" | \"medium\" | \"large\"",
+                    "decorators": []
+                }
+            ],
+            "outputsClass": [
+                {
+                    "name": "onClick",
+                    "defaultValue": "new EventEmitter<Event>()",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "rawdescription": "\n\nOptional click handler\n",
+                    "description": "<p>Optional click handler</p>\n",
+                    "line": 48,
+                    "type": "EventEmitter"
+                }
+            ],
+            "propertiesClass": [],
+            "methodsClass": [
+                {
+                    "name": "myClick",
+                    "args": [
+                        {
+                            "name": "event",
+                            "type": "any",
+                            "deprecated": false,
+                            "deprecationMessage": ""
+                        }
+                    ],
+                    "optional": false,
+                    "returnType": "void",
+                    "typeParameters": [],
+                    "line": 55,
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "jsdoctags": [
+                        {
+                            "name": "event",
+                            "type": "any",
+                            "deprecated": false,
+                            "deprecationMessage": "",
+                            "tagName": {
+                                "text": "param"
+                            }
+                        }
+                    ]
+                }
+            ],
+            "deprecated": false,
+            "deprecationMessage": "",
+            "hostBindings": [],
+            "hostListeners": [],
+            "standalone": false,
+            "imports": [],
+            "description": "",
+            "rawdescription": "\n",
+            "type": "component",
+            "sourceCode": "import { CommonModule } from '@angular/common';\nimport { Component, Input, Output, EventEmitter } from '@angular/core';\n\n@Component({\n  selector: 'storybook-button',\n  // imports: [CommonModule],\n  template: ` <button\n    type=\"button\"\n    (click)=\"myClick($event)\"\n    [ngClass]=\"classes\"\n    [ngStyle]=\"{ 'background-color': backgroundColor }\"\n  >\n    {{ label }}\n  </button>`,\n  styleUrls: ['./button.css'],\n})\nexport default class ButtonComponent {\n  /**\n   * Is this the principal call to action on the page?\n   */\n  @Input()\n  primary = false;\n\n  /**\n   * What background color to use\n   */\n  @Input()\n  backgroundColor?: string;\n\n  /**\n   * How large should the button be?\n   */\n  @Input()\n  size: 'small' | 'medium' | 'large' = 'medium';\n\n  /**\n   * Button contents\n   *\n   * @required\n   */\n  @Input()\n  label = 'Button';\n\n  /**\n   * Optional click handler\n   */\n  @Output()\n  onClick = new EventEmitter<Event>();\n\n  public get classes(): string[] {\n    const mode = this.primary ? 'storybook-button--primary' : 'storybook-button--secondary';\n\n    return ['storybook-button', `storybook-button--${this.size}`, mode];\n  }\n  myClick(event: any): void {\n    console.log('kliknięto button')\n    this.onClick.emit(event)\n  }\n}\n",
+            "assetsDirs": [],
+            "styleUrlsData": [
+                {
+                    "data": ".storybook-button {\n  font-family: 'Nunito Sans', 'Helvetica Neue', Helvetica, Arial, sans-serif;\n  font-weight: 700;\n  border: 0;\n  border-radius: 3em;\n  cursor: pointer;\n  display: inline-block;\n  line-height: 1;\n}\n.storybook-button--primary {\n  color: white;\n  background-color: #1ea7fd;\n}\n.storybook-button--secondary {\n  color: #333;\n  background-color: transparent;\n  box-shadow: rgba(0, 0, 0, 0.15) 0px 0px 0px 1px inset;\n}\n.storybook-button--small {\n  font-size: 12px;\n  padding: 10px 16px;\n}\n.storybook-button--medium {\n  font-size: 14px;\n  padding: 11px 20px;\n}\n.storybook-button--large {\n  font-size: 16px;\n  padding: 12px 24px;\n}\n",
+                    "styleUrl": "./button.css"
+                }
+            ],
+            "stylesData": "",
+            "extends": [],
+            "accessors": {
+                "classes": {
+                    "name": "classes",
+                    "getSignature": {
+                        "name": "classes",
+                        "type": "[]",
+                        "returnType": "string[]",
+                        "line": 50
+                    }
+                }
+            }
+        },
+        {
             "name": "ButtonStrComponent",
-            "id": "component-ButtonStrComponent-487ec2f7815ad44f20a6cb78bea146dc752c22485b41ac655351dbc7a91b67fe90770adebd22fbd75cf43b37037a24a4c7119f53ff103affe0d7003c51a6616c",
+            "id": "component-ButtonStrComponent-2314ce9027bc07ece7834a772104d90c7b86a4a34046f8ff7a661c0368fcdf4b637a68b8688c03a3259fc2549d95bd79ba26aedee82cfdecd2c04d0889942662",
             "file": "libs/str/src/lib/button/button-str.component.ts",
             "encapsulation": [],
             "entryComponents": [],
@@ -30,7 +187,7 @@
                     "defaultValue": "{\n    name: 'Click me',\n    padding: 10\n  }",
                     "deprecated": false,
                     "deprecationMessage": "",
-                    "line": 12,
+                    "line": 11,
                     "type": "TestInput",
                     "decorators": []
                 },
@@ -39,7 +196,7 @@
                     "defaultValue": "false",
                     "deprecated": false,
                     "deprecationMessage": "",
-                    "line": 18,
+                    "line": 15,
                     "type": "boolean",
                     "decorators": []
                 }
@@ -50,7 +207,7 @@
                     "defaultValue": "new EventEmitter<string>()",
                     "deprecated": false,
                     "deprecationMessage": "",
-                    "line": 19,
+                    "line": 16,
                     "type": "EventEmitter<string>"
                 }
             ],
@@ -58,13 +215,31 @@
             "methodsClass": [
                 {
                     "name": "onClick",
-                    "args": [],
+                    "args": [
+                        {
+                            "name": "event",
+                            "type": "any",
+                            "deprecated": false,
+                            "deprecationMessage": ""
+                        }
+                    ],
                     "optional": false,
                     "returnType": "void",
                     "typeParameters": [],
-                    "line": 21,
+                    "line": 18,
                     "deprecated": false,
-                    "deprecationMessage": ""
+                    "deprecationMessage": "",
+                    "jsdoctags": [
+                        {
+                            "name": "event",
+                            "type": "any",
+                            "deprecated": false,
+                            "deprecationMessage": "",
+                            "tagName": {
+                                "text": "param"
+                            }
+                        }
+                    ]
                 }
             ],
             "deprecated": false,
@@ -76,13 +251,13 @@
             "description": "",
             "rawdescription": "\n",
             "type": "component",
-            "sourceCode": "import { Component, EventEmitter, Input, Output } from '@angular/core';\nimport { TestInput } from '@storybook/str2';\n\n\n\n@Component({\n  selector: 'storybook-button-str',\n  templateUrl: './button-str.component.html',\n  styleUrl: './button-str.component.css'\n})\nexport class ButtonStrComponent {\n  @Input() data: TestInput = {\n    name: 'Click me',\n    padding: 10\n  }\n  // @Input() text = 'Click me';\n  // @Input() padding = 10;\n  @Input() disabled = false;\n  @Output() onClicked: EventEmitter<string> = new EventEmitter<string>();\n\n  onClick(): void {\n    this.onClicked.emit('data');\n    console.log('kliknięto');\n  }\n}\n",
+            "sourceCode": "import { Component, EventEmitter, Input, Output } from '@angular/core';\nimport { TestInput } from '@storybook/str2';\n\n\n@Component({\n  selector: 'storybook-button-str',\n  templateUrl: './button-str.component.html',\n  styleUrl: './button-str.component.css'\n})\nexport class ButtonStrComponent {\n  @Input() data: TestInput = {\n    name: 'Click me',\n    padding: 10\n  };\n  @Input() disabled = false;\n  @Output() onClicked: EventEmitter<string> = new EventEmitter<string>();\n\n  onClick(event: any): void {\n    this.onClicked.emit(event);\n    console.log('kliknięto');\n  }\n}\n",
             "styleUrl": "./button-str.component.css",
             "assetsDirs": [],
             "styleUrlsData": "",
             "stylesData": "",
             "extends": [],
-            "templateData": "<button (click)=\"onClick()\" [disabled]=\"disabled\" [ngStyle]=\"{'padding.px': data.padding }\">'{{ data.name }}'</button>\r\n"
+            "templateData": "<button (click)=\"onClick($event)\" [disabled]=\"disabled\" [ngStyle]=\"{'padding.px': data.padding }\">'{{ data.name }}'</button>\r\n"
         }
     ],
     "modules": [
@@ -134,16 +309,6 @@
     "miscellaneous": {
         "variables": [
             {
-                "name": "actionsData",
-                "ctype": "miscellaneous",
-                "subtype": "variable",
-                "file": "libs/str/src/lib/button/button-str.component.stories.ts",
-                "deprecated": false,
-                "deprecationMessage": "",
-                "type": "object",
-                "defaultValue": "{\n  onClicked: action('onClicked')\n}"
-            },
-            {
                 "name": "config",
                 "ctype": "miscellaneous",
                 "subtype": "variable",
@@ -161,7 +326,7 @@
                 "deprecated": false,
                 "deprecationMessage": "",
                 "type": "Story",
-                "defaultValue": "{\n  args: {\n    data: getData(),\n    disabled: false,\n  },\n  play: async ({ canvasElement }) => {\n    const canvas = within(canvasElement);\n    expect(canvas.getByText(/Click me/)).toBeTruthy();\n    expect(canvas.getByText(/Click me/)).toBeTruthy();\n    console.log('log fom button play')\n  },\n}"
+                "defaultValue": "{\n  args: {\n    data: getData(),\n    disabled: false\n  }\n  // play: async ({ canvasElement }) => {\n  //   const canvas = within(canvasElement);\n  //   expect(canvas.getByText(/Click me/)).toBeTruthy();\n  //   expect(canvas.getByText(/Click me/)).toBeTruthy();\n  //   console.log('log fom button play');\n  // }\n}"
             },
             {
                 "name": "Heading2",
@@ -171,7 +336,17 @@
                 "deprecated": false,
                 "deprecationMessage": "",
                 "type": "Story",
-                "defaultValue": "{\n  args: {\n    data: getData(),\n    disabled: false,\n  },\n  play: async ({ canvasElement }) => {\n    const canvas = within(canvasElement);\n    expect(canvas.getByText(/Click me/gi)).toBeTruthy();\n  },\n}"
+                "defaultValue": "{\n  args: {\n    data: getData(),\n    disabled: false\n  }\n  // play: async ({ canvasElement }) => {\n  //   const canvas = within(canvasElement);\n  //   expect(canvas.getByText(/Click me/gi)).toBeTruthy();\n  // }\n}"
+            },
+            {
+                "name": "Large",
+                "ctype": "miscellaneous",
+                "subtype": "variable",
+                "file": "libs/str/src/lib/button-org/Button.stories.ts",
+                "deprecated": false,
+                "deprecationMessage": "",
+                "type": "Story",
+                "defaultValue": "{\n  args: {\n    size: 'large',\n    label: 'Button',\n  },\n}"
             },
             {
                 "name": "meta",
@@ -181,7 +356,17 @@
                 "deprecated": false,
                 "deprecationMessage": "",
                 "type": "Meta<ButtonStrComponent>",
-                "defaultValue": "{\n  component: ButtonStrComponent,\n  title: 'MyButtonComponent',\n  tags: ['autodocs'],\n  excludeStories: /.*Data$/,\n  decorators: [\n    moduleMetadata({\n      imports: [CommonModule, Str2Module]\n    }),\n    applicationConfig({\n      providers: [importProvidersFrom(Str2Module)]\n    }),\n    // use your injector here !!\n    injectInjectorToProps(),\n  ],\n  render: (args: ButtonStrComponent) => ({\n    props: {\n      ...args,\n      // onClicked: actionsData.onClicked,\n      // getPropData: (injector: Injector) => {\n      //   console.log('jestem2')\n      //   // the injector is provided by the template and all services are now available\n      //   return injector.get(DataBuilder).getData();\n      // }\n    }\n    // template: `<storybook-button-str ${argsToTemplate(args)}>/<storybook-button-str>`\n  })\n}"
+                "defaultValue": "{\n  component: ButtonStrComponent,\n  title: 'MyButtonComponent',\n  tags: ['autodocs'],\n  excludeStories: /.*Data$/,\n  render: (args: ButtonStrComponent) => ({\n    props: {\n      backgroundColor: null,\n      ...args,\n    },\n  }),\n  // decorators: [\n  //   moduleMetadata({\n  //     imports: [CommonModule, Str2Module]\n  //   }),\n  //   applicationConfig({\n  //     providers: [importProvidersFrom(Str2Module)]\n  //   }),\n  //   // use your injector here !!\n  //   injectInjectorToProps()\n  // ],\n  // render: (args: ButtonStrComponent) => ({\n  //   props: {\n  //     ...args,\n  //     onClicked: actionsData.onClicked\n  //     // getPropData: (injector: Injector) => {\n  //     //   console.log('jestem2')\n  //     //   // the injector is provided by the template and all services are now available\n  //     //   return injector.get(DataBuilder).getData();\n  //     // }\n  //   },\n  //   template: `<storybook-button-str ${argsToTemplate(args)}>/<storybook-button-str>`\n  // })\n}"
+            },
+            {
+                "name": "meta",
+                "ctype": "miscellaneous",
+                "subtype": "variable",
+                "file": "libs/str/src/lib/button-org/Button.stories.ts",
+                "deprecated": false,
+                "deprecationMessage": "",
+                "type": "Meta<Button>",
+                "defaultValue": "{\n  title: 'Example/Button',\n  component: Button,\n  tags: ['autodocs'],\n  render: (args: Button) => ({\n    props: {\n      backgroundColor: null,\n      ...args,\n    },\n  }),\n  argTypes: {\n    backgroundColor: {\n      control: 'color',\n    },\n  },\n}"
             },
             {
                 "name": "preview",
@@ -202,6 +387,36 @@
                 "deprecationMessage": "",
                 "type": "Story",
                 "defaultValue": "{\n  name: 'Moje story',\n  args: {\n    data: getData(),\n    disabled: false\n  }\n}"
+            },
+            {
+                "name": "Primary",
+                "ctype": "miscellaneous",
+                "subtype": "variable",
+                "file": "libs/str/src/lib/button-org/Button.stories.ts",
+                "deprecated": false,
+                "deprecationMessage": "",
+                "type": "Story",
+                "defaultValue": "{\n  args: {\n    primary: true,\n    label: 'Button',\n  },\n}"
+            },
+            {
+                "name": "Secondary",
+                "ctype": "miscellaneous",
+                "subtype": "variable",
+                "file": "libs/str/src/lib/button-org/Button.stories.ts",
+                "deprecated": false,
+                "deprecationMessage": "",
+                "type": "Story",
+                "defaultValue": "{\n  args: {\n    label: 'Button',\n  },\n}"
+            },
+            {
+                "name": "Small",
+                "ctype": "miscellaneous",
+                "subtype": "variable",
+                "file": "libs/str/src/lib/button-org/Button.stories.ts",
+                "deprecated": false,
+                "deprecationMessage": "",
+                "type": "Story",
+                "defaultValue": "{\n  args: {\n    size: 'small',\n    label: 'Button',\n  },\n}"
             }
         ],
         "functions": [
@@ -226,50 +441,6 @@
                 "description": "",
                 "args": [],
                 "returnType": "DecoratorFunction<AngularRenderer, TArgs>"
-            },
-            {
-                "name": "spreedData",
-                "file": "libs/str/src/lib/button/button-str.component.stories.ts",
-                "ctype": "miscellaneous",
-                "subtype": "function",
-                "deprecated": false,
-                "deprecationMessage": "",
-                "description": "",
-                "args": [
-                    {
-                        "name": "data",
-                        "type": "TestInput",
-                        "deprecated": false,
-                        "deprecationMessage": ""
-                    },
-                    {
-                        "name": "args",
-                        "type": "TestInput",
-                        "deprecated": false,
-                        "deprecationMessage": ""
-                    }
-                ],
-                "returnType": "TestInput",
-                "jsdoctags": [
-                    {
-                        "name": "data",
-                        "type": "TestInput",
-                        "deprecated": false,
-                        "deprecationMessage": "",
-                        "tagName": {
-                            "text": "param"
-                        }
-                    },
-                    {
-                        "name": "args",
-                        "type": "TestInput",
-                        "deprecated": false,
-                        "deprecationMessage": "",
-                        "tagName": {
-                            "text": "param"
-                        }
-                    }
-                ]
             }
         ],
         "typealiases": [
@@ -283,21 +454,34 @@
                 "deprecationMessage": "",
                 "description": "",
                 "kind": 183
+            },
+            {
+                "name": "Story",
+                "ctype": "miscellaneous",
+                "subtype": "typealias",
+                "rawtype": "StoryObj<Button>",
+                "file": "libs/str/src/lib/button-org/Button.stories.ts",
+                "deprecated": false,
+                "deprecationMessage": "",
+                "description": "",
+                "kind": 183
             }
         ],
         "enumerations": [],
         "groupedVariables": {
-            "libs/str/src/lib/button/button-str.component.stories.ts": [
+            "libs/str/.storybook/main.ts": [
                 {
-                    "name": "actionsData",
+                    "name": "config",
                     "ctype": "miscellaneous",
                     "subtype": "variable",
-                    "file": "libs/str/src/lib/button/button-str.component.stories.ts",
+                    "file": "libs/str/.storybook/main.ts",
                     "deprecated": false,
                     "deprecationMessage": "",
-                    "type": "object",
-                    "defaultValue": "{\n  onClicked: action('onClicked')\n}"
-                },
+                    "type": "StorybookConfig",
+                    "defaultValue": "{\n  stories: ['../src/lib/**/*.stories.@(js|jsx|ts|tsx|mdx)'],\n  addons: [\n    '@storybook/addon-links',\n    '@storybook/addon-essentials',\n    '@storybook/addon-interactions',\n    '@storybook/addon-a11y',],\n  framework: {\n    name: '@storybook/angular',\n    options: {},\n  },\n  docs: {\n    autodocs: 'tag',\n    defaultName: 'Docs',\n  },\n}"
+                }
+            ],
+            "libs/str/src/lib/button/button-str.component.stories.ts": [
                 {
                     "name": "Heading",
                     "ctype": "miscellaneous",
@@ -306,7 +490,7 @@
                     "deprecated": false,
                     "deprecationMessage": "",
                     "type": "Story",
-                    "defaultValue": "{\n  args: {\n    data: getData(),\n    disabled: false,\n  },\n  play: async ({ canvasElement }) => {\n    const canvas = within(canvasElement);\n    expect(canvas.getByText(/Click me/)).toBeTruthy();\n    expect(canvas.getByText(/Click me/)).toBeTruthy();\n    console.log('log fom button play')\n  },\n}"
+                    "defaultValue": "{\n  args: {\n    data: getData(),\n    disabled: false\n  }\n  // play: async ({ canvasElement }) => {\n  //   const canvas = within(canvasElement);\n  //   expect(canvas.getByText(/Click me/)).toBeTruthy();\n  //   expect(canvas.getByText(/Click me/)).toBeTruthy();\n  //   console.log('log fom button play');\n  // }\n}"
                 },
                 {
                     "name": "Heading2",
@@ -316,7 +500,7 @@
                     "deprecated": false,
                     "deprecationMessage": "",
                     "type": "Story",
-                    "defaultValue": "{\n  args: {\n    data: getData(),\n    disabled: false,\n  },\n  play: async ({ canvasElement }) => {\n    const canvas = within(canvasElement);\n    expect(canvas.getByText(/Click me/gi)).toBeTruthy();\n  },\n}"
+                    "defaultValue": "{\n  args: {\n    data: getData(),\n    disabled: false\n  }\n  // play: async ({ canvasElement }) => {\n  //   const canvas = within(canvasElement);\n  //   expect(canvas.getByText(/Click me/gi)).toBeTruthy();\n  // }\n}"
                 },
                 {
                     "name": "meta",
@@ -326,7 +510,7 @@
                     "deprecated": false,
                     "deprecationMessage": "",
                     "type": "Meta<ButtonStrComponent>",
-                    "defaultValue": "{\n  component: ButtonStrComponent,\n  title: 'MyButtonComponent',\n  tags: ['autodocs'],\n  excludeStories: /.*Data$/,\n  decorators: [\n    moduleMetadata({\n      imports: [CommonModule, Str2Module]\n    }),\n    applicationConfig({\n      providers: [importProvidersFrom(Str2Module)]\n    }),\n    // use your injector here !!\n    injectInjectorToProps(),\n  ],\n  render: (args: ButtonStrComponent) => ({\n    props: {\n      ...args,\n      // onClicked: actionsData.onClicked,\n      // getPropData: (injector: Injector) => {\n      //   console.log('jestem2')\n      //   // the injector is provided by the template and all services are now available\n      //   return injector.get(DataBuilder).getData();\n      // }\n    }\n    // template: `<storybook-button-str ${argsToTemplate(args)}>/<storybook-button-str>`\n  })\n}"
+                    "defaultValue": "{\n  component: ButtonStrComponent,\n  title: 'MyButtonComponent',\n  tags: ['autodocs'],\n  excludeStories: /.*Data$/,\n  render: (args: ButtonStrComponent) => ({\n    props: {\n      backgroundColor: null,\n      ...args,\n    },\n  }),\n  // decorators: [\n  //   moduleMetadata({\n  //     imports: [CommonModule, Str2Module]\n  //   }),\n  //   applicationConfig({\n  //     providers: [importProvidersFrom(Str2Module)]\n  //   }),\n  //   // use your injector here !!\n  //   injectInjectorToProps()\n  // ],\n  // render: (args: ButtonStrComponent) => ({\n  //   props: {\n  //     ...args,\n  //     onClicked: actionsData.onClicked\n  //     // getPropData: (injector: Injector) => {\n  //     //   console.log('jestem2')\n  //     //   // the injector is provided by the template and all services are now available\n  //     //   return injector.get(DataBuilder).getData();\n  //     // }\n  //   },\n  //   template: `<storybook-button-str ${argsToTemplate(args)}>/<storybook-button-str>`\n  // })\n}"
                 },
                 {
                     "name": "Primary",
@@ -339,16 +523,56 @@
                     "defaultValue": "{\n  name: 'Moje story',\n  args: {\n    data: getData(),\n    disabled: false\n  }\n}"
                 }
             ],
-            "libs/str/.storybook/main.ts": [
+            "libs/str/src/lib/button-org/Button.stories.ts": [
                 {
-                    "name": "config",
+                    "name": "Large",
                     "ctype": "miscellaneous",
                     "subtype": "variable",
-                    "file": "libs/str/.storybook/main.ts",
+                    "file": "libs/str/src/lib/button-org/Button.stories.ts",
                     "deprecated": false,
                     "deprecationMessage": "",
-                    "type": "StorybookConfig",
-                    "defaultValue": "{\n  stories: ['../src/lib/**/*.stories.@(js|jsx|ts|tsx|mdx)'],\n  addons: [\n    '@storybook/addon-links',\n    '@storybook/addon-essentials',\n    '@storybook/addon-interactions',\n    '@storybook/addon-a11y',],\n  framework: {\n    name: '@storybook/angular',\n    options: {},\n  },\n  docs: {\n    autodocs: 'tag',\n    defaultName: 'Docs',\n  },\n}"
+                    "type": "Story",
+                    "defaultValue": "{\n  args: {\n    size: 'large',\n    label: 'Button',\n  },\n}"
+                },
+                {
+                    "name": "meta",
+                    "ctype": "miscellaneous",
+                    "subtype": "variable",
+                    "file": "libs/str/src/lib/button-org/Button.stories.ts",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "Meta<Button>",
+                    "defaultValue": "{\n  title: 'Example/Button',\n  component: Button,\n  tags: ['autodocs'],\n  render: (args: Button) => ({\n    props: {\n      backgroundColor: null,\n      ...args,\n    },\n  }),\n  argTypes: {\n    backgroundColor: {\n      control: 'color',\n    },\n  },\n}"
+                },
+                {
+                    "name": "Primary",
+                    "ctype": "miscellaneous",
+                    "subtype": "variable",
+                    "file": "libs/str/src/lib/button-org/Button.stories.ts",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "Story",
+                    "defaultValue": "{\n  args: {\n    primary: true,\n    label: 'Button',\n  },\n}"
+                },
+                {
+                    "name": "Secondary",
+                    "ctype": "miscellaneous",
+                    "subtype": "variable",
+                    "file": "libs/str/src/lib/button-org/Button.stories.ts",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "Story",
+                    "defaultValue": "{\n  args: {\n    label: 'Button',\n  },\n}"
+                },
+                {
+                    "name": "Small",
+                    "ctype": "miscellaneous",
+                    "subtype": "variable",
+                    "file": "libs/str/src/lib/button-org/Button.stories.ts",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "Story",
+                    "defaultValue": "{\n  args: {\n    size: 'small',\n    label: 'Button',\n  },\n}"
                 }
             ],
             "libs/str/.storybook/preview.ts": [
@@ -388,52 +612,6 @@
                     "args": [],
                     "returnType": "DecoratorFunction<AngularRenderer, TArgs>"
                 }
-            ],
-            "libs/str/src/lib/button/button-str.component.stories.ts": [
-                {
-                    "name": "spreedData",
-                    "file": "libs/str/src/lib/button/button-str.component.stories.ts",
-                    "ctype": "miscellaneous",
-                    "subtype": "function",
-                    "deprecated": false,
-                    "deprecationMessage": "",
-                    "description": "",
-                    "args": [
-                        {
-                            "name": "data",
-                            "type": "TestInput",
-                            "deprecated": false,
-                            "deprecationMessage": ""
-                        },
-                        {
-                            "name": "args",
-                            "type": "TestInput",
-                            "deprecated": false,
-                            "deprecationMessage": ""
-                        }
-                    ],
-                    "returnType": "TestInput",
-                    "jsdoctags": [
-                        {
-                            "name": "data",
-                            "type": "TestInput",
-                            "deprecated": false,
-                            "deprecationMessage": "",
-                            "tagName": {
-                                "text": "param"
-                            }
-                        },
-                        {
-                            "name": "args",
-                            "type": "TestInput",
-                            "deprecated": false,
-                            "deprecationMessage": "",
-                            "tagName": {
-                                "text": "param"
-                            }
-                        }
-                    ]
-                }
             ]
         },
         "groupedEnumerations": {},
@@ -450,12 +628,25 @@
                     "description": "",
                     "kind": 183
                 }
+            ],
+            "libs/str/src/lib/button-org/Button.stories.ts": [
+                {
+                    "name": "Story",
+                    "ctype": "miscellaneous",
+                    "subtype": "typealias",
+                    "rawtype": "StoryObj<Button>",
+                    "file": "libs/str/src/lib/button-org/Button.stories.ts",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "description": "",
+                    "kind": 183
+                }
             ]
         }
     },
     "routes": [],
     "coverage": {
-        "count": 0,
+        "count": 4,
         "status": "low",
         "files": [
             {
@@ -479,24 +670,63 @@
                 "status": "low"
             },
             {
-                "filePath": "libs/str/src/lib/button/button-str.component.stories.ts",
-                "type": "function",
+                "filePath": "libs/str/src/lib/button-org/Button.stories.ts",
+                "type": "variable",
                 "linktype": "miscellaneous",
-                "linksubtype": "function",
-                "name": "spreedData",
+                "linksubtype": "variable",
+                "name": "Large",
                 "coveragePercent": 0,
                 "coverageCount": "0/1",
                 "status": "low"
             },
             {
-                "filePath": "libs/str/src/lib/button/button-str.component.stories.ts",
+                "filePath": "libs/str/src/lib/button-org/Button.stories.ts",
                 "type": "variable",
                 "linktype": "miscellaneous",
                 "linksubtype": "variable",
-                "name": "actionsData",
+                "name": "meta",
                 "coveragePercent": 0,
                 "coverageCount": "0/1",
                 "status": "low"
+            },
+            {
+                "filePath": "libs/str/src/lib/button-org/Button.stories.ts",
+                "type": "variable",
+                "linktype": "miscellaneous",
+                "linksubtype": "variable",
+                "name": "Primary",
+                "coveragePercent": 0,
+                "coverageCount": "0/1",
+                "status": "low"
+            },
+            {
+                "filePath": "libs/str/src/lib/button-org/Button.stories.ts",
+                "type": "variable",
+                "linktype": "miscellaneous",
+                "linksubtype": "variable",
+                "name": "Secondary",
+                "coveragePercent": 0,
+                "coverageCount": "0/1",
+                "status": "low"
+            },
+            {
+                "filePath": "libs/str/src/lib/button-org/Button.stories.ts",
+                "type": "variable",
+                "linktype": "miscellaneous",
+                "linksubtype": "variable",
+                "name": "Small",
+                "coveragePercent": 0,
+                "coverageCount": "0/1",
+                "status": "low"
+            },
+            {
+                "filePath": "libs/str/src/lib/button-org/button.component.ts",
+                "type": "component",
+                "linktype": "component",
+                "name": "ButtonComponent",
+                "coveragePercent": 71,
+                "coverageCount": "5/7",
+                "status": "good"
             },
             {
                 "filePath": "libs/str/src/lib/button/button-str.component.stories.ts",

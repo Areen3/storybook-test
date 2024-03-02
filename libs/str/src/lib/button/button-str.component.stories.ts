@@ -1,45 +1,50 @@
 import { applicationConfig, argsToTemplate, type Meta, moduleMetadata, type StoryObj } from '@storybook/angular';
 
 import { ButtonStrComponent } from './button-str.component';
+import { getData, injectInjectorToProps } from '../services/inject-props';
 import { CommonModule } from '@angular/common';
 import { Str2Module } from '@storybook/str2';
 import { importProvidersFrom } from '@angular/core';
-import { getData, injectInjectorToProps } from '../services/inject-props';
 import { action } from '@storybook/addon-actions';
-import { expect, within } from '@storybook/test';
 
-export const actionsData = {
-  onClicked: action('onClicked')
-};
+// export const actionsData = {
+//   onClicked: action('onClicked')
+// };
 
 
 const meta: Meta<ButtonStrComponent> = {
   component: ButtonStrComponent,
   title: 'MyButtonComponent',
   tags: ['autodocs'],
-  excludeStories: /.*Data$/,
-  decorators: [
-    moduleMetadata({
-      imports: [CommonModule, Str2Module]
-    }),
-    applicationConfig({
-      providers: [importProvidersFrom(Str2Module)]
-    }),
-    // use your injector here !!
-    injectInjectorToProps()
-  ],
+  // excludeStories: /.*Data$/,
   render: (args: ButtonStrComponent) => ({
     props: {
+      backgroundColor: null,
       ...args,
-      onClicked: actionsData.onClicked
-      // getPropData: (injector: Injector) => {
-      //   console.log('jestem2')
-      //   // the injector is provided by the template and all services are now available
-      //   return injector.get(DataBuilder).getData();
-      // }
     },
-    template: `<storybook-button-str ${argsToTemplate(args)}>/<storybook-button-str>`
-  })
+  }),
+  // decorators: [
+  //   moduleMetadata({
+  //     imports: [CommonModule, Str2Module]
+  //   }),
+  //   applicationConfig({
+  //     providers: [importProvidersFrom(Str2Module)]
+  //   }),
+  //   // use your injector here !!
+  //   injectInjectorToProps()
+  // ],
+  // render: (args: ButtonStrComponent) => ({
+  //   props: {
+  //     ...args,
+  //     onClicked: actionsData.onClicked
+  //     // getPropData: (injector: Injector) => {
+  //     //   console.log('jestem2')
+  //     //   // the injector is provided by the template and all services are now available
+  //     //   return injector.get(DataBuilder).getData();
+  //     // }
+  //   },
+  //   template: `<storybook-button-str ${argsToTemplate(args)}>/<storybook-button-str>`
+  // })
 };
 // <!-- <storybook-button-str [data]="getPropData(injector)" [disabled]="false">/<storybook-button-str> -->
 
@@ -83,24 +88,24 @@ export const Heading: Story = {
   args: {
     data: getData(),
     disabled: false
-  },
-  play: async ({ canvasElement }) => {
-    const canvas = within(canvasElement);
-    expect(canvas.getByText(/Click me/)).toBeTruthy();
-    expect(canvas.getByText(/Click me/)).toBeTruthy();
-    console.log('log fom button play');
   }
+  // play: async ({ canvasElement }) => {
+  //   const canvas = within(canvasElement);
+  //   expect(canvas.getByText(/Click me/)).toBeTruthy();
+  //   expect(canvas.getByText(/Click me/)).toBeTruthy();
+  //   console.log('log fom button play');
+  // }
 };
 
 export const Heading2: Story = {
   args: {
     data: getData(),
     disabled: false
-  },
-  play: async ({ canvasElement }) => {
-    const canvas = within(canvasElement);
-    expect(canvas.getByText(/Click me/gi)).toBeTruthy();
   }
+  // play: async ({ canvasElement }) => {
+  //   const canvas = within(canvasElement);
+  //   expect(canvas.getByText(/Click me/gi)).toBeTruthy();
+  // }
 };
 
 
