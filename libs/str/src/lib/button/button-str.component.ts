@@ -20,11 +20,11 @@ export class ButtonStrComponent {
     padding: 10
   };
   @Input() disabled = false;
-  @Output() onClicked: EventEmitter<Event> = new EventEmitter<Event>();
+  @Output() clicked: EventEmitter<Event> = new EventEmitter<Event>();
 
   myClick(event: any): void {
     console.log('kliknięto str');
-    this.onClicked.emit(event);
+    this.clicked.emit(event);
 
   }
 }

@@ -9,7 +9,7 @@
     "components": [
         {
             "name": "ButtonComponent",
-            "id": "component-ButtonComponent-d5361ebb08484bf6cef7a0a5fb1f5ee36b3693e19009d17e90395021879dbc9938b042f8342e73c0b731e77d791ef34d2fc3bf7d02317f3023f77bf32a865fd4",
+            "id": "component-ButtonComponent-9ab155285814695736871ba91d48b76146629b0d5ef7cfd2c7ae6b77241509ce2abd40be7ea6b4e435671c9ed4d56cf725d4965dcd7b0d8848434dee8cfbd3d4",
             "file": "libs/str/src/lib/button-org/button.component.ts",
             "encapsulation": [],
             "entryComponents": [],
@@ -21,7 +21,7 @@
                 "./button.css"
             ],
             "styles": [],
-            "template": "<button   type=\"button\"\n   (click)=\"myClick($event)\"\n   [ngClass]=\"classes\"\n   [ngStyle]=\"{ 'background-color': backgroundColor }\"\n >\n   {{ label }}\n </button>",
+            "template": "<button\n  type=\"button\"\n  (click)=\"myClick($event)\"\n  [ngClass]=\"classes\"\n  [ngStyle]=\"{ 'background-color': backgroundColor }\"\n>\n  {{ label }}\n</button>",
             "templateUrl": [],
             "viewProviders": [],
             "hostDirectives": [],
@@ -43,15 +43,15 @@
                     "deprecationMessage": "",
                     "jsdoctags": [
                         {
-                            "pos": 784,
-                            "end": 797,
+                            "pos": 753,
+                            "end": 766,
                             "flags": 16842752,
                             "modifierFlagsCache": 0,
                             "transformFlags": 0,
                             "kind": 334,
                             "tagName": {
-                                "pos": 785,
-                                "end": 793,
+                                "pos": 754,
+                                "end": 762,
                                 "flags": 16842752,
                                 "modifierFlagsCache": 0,
                                 "transformFlags": 0,
@@ -117,7 +117,7 @@
                     "optional": false,
                     "returnType": "void",
                     "typeParameters": [],
-                    "line": 55,
+                    "line": 56,
                     "deprecated": false,
                     "deprecationMessage": "",
                     "jsdoctags": [
@@ -142,7 +142,7 @@
             "description": "",
             "rawdescription": "\n",
             "type": "component",
-            "sourceCode": "import { CommonModule } from '@angular/common';\nimport { Component, Input, Output, EventEmitter } from '@angular/core';\n\n@Component({\n  selector: 'storybook-button',\n  // imports: [CommonModule],\n  template: ` <button\n    type=\"button\"\n    (click)=\"myClick($event)\"\n    [ngClass]=\"classes\"\n    [ngStyle]=\"{ 'background-color': backgroundColor }\"\n  >\n    {{ label }}\n  </button>`,\n  styleUrls: ['./button.css'],\n})\nexport default class ButtonComponent {\n  /**\n   * Is this the principal call to action on the page?\n   */\n  @Input()\n  primary = false;\n\n  /**\n   * What background color to use\n   */\n  @Input()\n  backgroundColor?: string;\n\n  /**\n   * How large should the button be?\n   */\n  @Input()\n  size: 'small' | 'medium' | 'large' = 'medium';\n\n  /**\n   * Button contents\n   *\n   * @required\n   */\n  @Input()\n  label = 'Button';\n\n  /**\n   * Optional click handler\n   */\n  @Output()\n  onClick = new EventEmitter<Event>();\n\n  public get classes(): string[] {\n    const mode = this.primary ? 'storybook-button--primary' : 'storybook-button--secondary';\n\n    return ['storybook-button', `storybook-button--${this.size}`, mode];\n  }\n  myClick(event: any): void {\n    console.log('kliknięto button')\n    this.onClick.emit(event)\n  }\n}\n",
+            "sourceCode": "import { Component, EventEmitter, Input, Output } from '@angular/core';\n\n@Component({\n  selector: 'storybook-button',\n  // imports: [CommonModule],\n  template: `\n    <button\n      type=\"button\"\n      (click)=\"myClick($event)\"\n      [ngClass]=\"classes\"\n      [ngStyle]=\"{ 'background-color': backgroundColor }\"\n    >\n      {{ label }}\n    </button>`,\n  styleUrls: ['./button.css']\n})\nexport default class ButtonComponent {\n  /**\n   * Is this the principal call to action on the page?\n   */\n  @Input()\n  primary = false;\n\n  /**\n   * What background color to use\n   */\n  @Input()\n  backgroundColor?: string;\n\n  /**\n   * How large should the button be?\n   */\n  @Input()\n  size: 'small' | 'medium' | 'large' = 'medium';\n\n  /**\n   * Button contents\n   *\n   * @required\n   */\n  @Input()\n  label = 'Button';\n\n  /**\n   * Optional click handler\n   */\n  @Output()\n  onClick = new EventEmitter<Event>();\n\n  public get classes(): string[] {\n    const mode = this.primary ? 'storybook-button--primary' : 'storybook-button--secondary';\n\n    return ['storybook-button', `storybook-button--${this.size}`, mode];\n  }\n\n  myClick(event: any): void {\n    console.log('kliknięto button');\n    this.onClick.emit(event);\n  }\n}\n",
             "assetsDirs": [],
             "styleUrlsData": [
                 {
@@ -166,7 +166,7 @@
         },
         {
             "name": "ButtonStrComponent",
-            "id": "component-ButtonStrComponent-2314ce9027bc07ece7834a772104d90c7b86a4a34046f8ff7a661c0368fcdf4b637a68b8688c03a3259fc2549d95bd79ba26aedee82cfdecd2c04d0889942662",
+            "id": "component-ButtonStrComponent-bb4baf92e92073d2aaab261a5b206c30e6d3c7e041f45fadcb3f112bc66be0081c766ac0b288f26a80bf459c0ea2f521786cd2b4a01a24d551eb1877ad408ccc",
             "file": "libs/str/src/lib/button/button-str.component.ts",
             "encapsulation": [],
             "entryComponents": [],
@@ -176,9 +176,8 @@
             "selector": "storybook-button-str",
             "styleUrls": [],
             "styles": [],
-            "templateUrl": [
-                "./button-str.component.html"
-            ],
+            "template": "<button\n  type=\"button\"\n  (click)=\"myClick($event)\"\n  [disabled]=\"disabled\"\n  [ngStyle]=\"{'padding.px': data.padding }\"\n>'{{ data.name }}'\n</button>",
+            "templateUrl": [],
             "viewProviders": [],
             "hostDirectives": [],
             "inputsClass": [
@@ -187,7 +186,7 @@
                     "defaultValue": "{\n    name: 'Click me',\n    padding: 10\n  }",
                     "deprecated": false,
                     "deprecationMessage": "",
-                    "line": 11,
+                    "line": 18,
                     "type": "TestInput",
                     "decorators": []
                 },
@@ -196,25 +195,25 @@
                     "defaultValue": "false",
                     "deprecated": false,
                     "deprecationMessage": "",
-                    "line": 15,
+                    "line": 22,
                     "type": "boolean",
                     "decorators": []
                 }
             ],
             "outputsClass": [
                 {
-                    "name": "onClicked",
-                    "defaultValue": "new EventEmitter<string>()",
+                    "name": "clicked",
+                    "defaultValue": "new EventEmitter<Event>()",
                     "deprecated": false,
                     "deprecationMessage": "",
-                    "line": 16,
-                    "type": "EventEmitter<string>"
+                    "line": 23,
+                    "type": "EventEmitter<Event>"
                 }
             ],
             "propertiesClass": [],
             "methodsClass": [
                 {
-                    "name": "onClick",
+                    "name": "myClick",
                     "args": [
                         {
                             "name": "event",
@@ -226,7 +225,7 @@
                     "optional": false,
                     "returnType": "void",
                     "typeParameters": [],
-                    "line": 18,
+                    "line": 25,
                     "deprecated": false,
                     "deprecationMessage": "",
                     "jsdoctags": [
@@ -251,25 +250,24 @@
             "description": "",
             "rawdescription": "\n",
             "type": "component",
-            "sourceCode": "import { Component, EventEmitter, Input, Output } from '@angular/core';\nimport { TestInput } from '@storybook/str2';\n\n\n@Component({\n  selector: 'storybook-button-str',\n  templateUrl: './button-str.component.html',\n  styleUrl: './button-str.component.css'\n})\nexport class ButtonStrComponent {\n  @Input() data: TestInput = {\n    name: 'Click me',\n    padding: 10\n  };\n  @Input() disabled = false;\n  @Output() onClicked: EventEmitter<string> = new EventEmitter<string>();\n\n  onClick(event: any): void {\n    this.onClicked.emit(event);\n    console.log('kliknięto');\n  }\n}\n",
+            "sourceCode": "import { Component, EventEmitter, Input, Output } from '@angular/core';\nimport { TestInput } from '@storybook/str2';\n\n\n@Component({\n  selector: 'storybook-button-str',\n  template: `\n    <button\n      type=\"button\"\n      (click)=\"myClick($event)\"\n      [disabled]=\"disabled\"\n      [ngStyle]=\"{'padding.px': data.padding }\"\n    >'{{ data.name }}'\n    </button>`,\n  styleUrl: './button-str.component.css'\n})\nexport class ButtonStrComponent {\n  @Input() data: TestInput = {\n    name: 'Click me',\n    padding: 10\n  };\n  @Input() disabled = false;\n  @Output() clicked: EventEmitter<Event> = new EventEmitter<Event>();\n\n  myClick(event: any): void {\n    console.log('kliknięto str');\n    this.clicked.emit(event);\n\n  }\n}\n",
             "styleUrl": "./button-str.component.css",
             "assetsDirs": [],
             "styleUrlsData": "",
             "stylesData": "",
-            "extends": [],
-            "templateData": "<button (click)=\"onClick($event)\" [disabled]=\"disabled\" [ngStyle]=\"{'padding.px': data.padding }\">'{{ data.name }}'</button>\r\n"
+            "extends": []
         }
     ],
     "modules": [
         {
             "name": "CompModule",
-            "id": "module-CompModule-463806928b4aad1628c3c4e84676bc552b3d8ffb59949dd1ee638165784f33306371b2966de846c3fe2efd855b147e3560bab337b6eebd65bc7b6227ea4b5dce",
+            "id": "module-CompModule-30ed3b2e2ec01ff3fb931fbdbe0c36525c8d4b11ef76a5367943456ef5dede90121b40fb2ee26b188b9ba6e3f1be7bd25540303f37499f58e5905adeabfb96de",
             "description": "",
             "deprecationMessage": "",
             "deprecated": false,
             "file": "libs/str/src/lib/comp.module.ts",
             "methods": [],
-            "sourceCode": "import { NgModule } from '@angular/core';\nimport { CommonModule } from '@angular/common';\nimport { ButtonStrComponent } from './button/button-str.component';\nimport {Str2Module} from '@storybook/str2'\n\n@NgModule({\n  imports: [\n    CommonModule,\n    Str2Module],\n  declarations:[ButtonStrComponent],\n  exports: [ButtonStrComponent]\n})\nexport class CompModule {\n}\n\n",
+            "sourceCode": "import { NgModule } from '@angular/core';\nimport { CommonModule } from '@angular/common';\nimport { ButtonStrComponent } from './button/button-str.component';\nimport {Str2Module} from '@storybook/str2'\nimport ButtonComponent from './button-org/button.component';\n\n@NgModule({\n  imports: [\n    CommonModule,\n    Str2Module],\n  declarations:[ButtonStrComponent, ButtonComponent],\n  exports: [ButtonStrComponent, ButtonComponent]\n})\nexport class CompModule {\n}\n\n",
             "children": [
                 {
                     "type": "providers",
@@ -278,6 +276,9 @@
                 {
                     "type": "declarations",
                     "elements": [
+                        {
+                            "name": "ButtonComponent"
+                        },
                         {
                             "name": "ButtonStrComponent"
                         }
@@ -290,6 +291,9 @@
                 {
                     "type": "exports",
                     "elements": [
+                        {
+                            "name": "ButtonComponent"
+                        },
                         {
                             "name": "ButtonStrComponent"
                         }
@@ -316,7 +320,7 @@
                 "deprecated": false,
                 "deprecationMessage": "",
                 "type": "StorybookConfig",
-                "defaultValue": "{\n  stories: ['../src/lib/**/*.stories.@(js|jsx|ts|tsx|mdx)'],\n  addons: [\n    '@storybook/addon-links',\n    '@storybook/addon-essentials',\n    '@storybook/addon-interactions',\n    '@storybook/addon-a11y',],\n  framework: {\n    name: '@storybook/angular',\n    options: {},\n  },\n  docs: {\n    autodocs: 'tag',\n    defaultName: 'Docs',\n  },\n}"
+                "defaultValue": "{\n  stories: ['../src/lib/**/*.stories.@(js|jsx|ts|tsx|mdx)'],\n  build: {\n    test:{\n\n      disableSourcemaps: false\n    }\n  },\n  addons: [\n    '@storybook/addon-links',\n    '@storybook/addon-essentials',\n    '@storybook/addon-interactions',\n    '@storybook/addon-a11y',],\n  framework: {\n    name: '@storybook/angular',\n    options: {},\n  },\n  docs: {\n    autodocs: 'tag',\n    defaultName: 'Docs',\n  },\n}"
             },
             {
                 "name": "Heading",
@@ -356,7 +360,7 @@
                 "deprecated": false,
                 "deprecationMessage": "",
                 "type": "Meta<ButtonStrComponent>",
-                "defaultValue": "{\n  component: ButtonStrComponent,\n  title: 'MyButtonComponent',\n  tags: ['autodocs'],\n  excludeStories: /.*Data$/,\n  render: (args: ButtonStrComponent) => ({\n    props: {\n      backgroundColor: null,\n      ...args,\n    },\n  }),\n  // decorators: [\n  //   moduleMetadata({\n  //     imports: [CommonModule, Str2Module]\n  //   }),\n  //   applicationConfig({\n  //     providers: [importProvidersFrom(Str2Module)]\n  //   }),\n  //   // use your injector here !!\n  //   injectInjectorToProps()\n  // ],\n  // render: (args: ButtonStrComponent) => ({\n  //   props: {\n  //     ...args,\n  //     onClicked: actionsData.onClicked\n  //     // getPropData: (injector: Injector) => {\n  //     //   console.log('jestem2')\n  //     //   // the injector is provided by the template and all services are now available\n  //     //   return injector.get(DataBuilder).getData();\n  //     // }\n  //   },\n  //   template: `<storybook-button-str ${argsToTemplate(args)}>/<storybook-button-str>`\n  // })\n}"
+                "defaultValue": "{\n  component: ButtonStrComponent,\n  title: 'MyButtonComponent',\n  tags: ['autodocs'],\n  // excludeStories: /.*Data$/,\n  render: (args: ButtonStrComponent) => ({\n    props: {\n      backgroundColor: null,\n      ...args,\n    },\n  }),\n  // decorators: [\n  //   moduleMetadata({\n  //     imports: [CommonModule, Str2Module]\n  //   }),\n  //   applicationConfig({\n  //     providers: [importProvidersFrom(Str2Module)]\n  //   }),\n  //   // use your injector here !!\n  //   injectInjectorToProps()\n  // ],\n  // render: (args: ButtonStrComponent) => ({\n  //   props: {\n  //     ...args,\n  //     onClicked: actionsData.onClicked\n  //     // getPropData: (injector: Injector) => {\n  //     //   console.log('jestem2')\n  //     //   // the injector is provided by the template and all services are now available\n  //     //   return injector.get(DataBuilder).getData();\n  //     // }\n  //   },\n  //   template: `<storybook-button-str ${argsToTemplate(args)}>/<storybook-button-str>`\n  // })\n}"
             },
             {
                 "name": "meta",
@@ -478,7 +482,7 @@
                     "deprecated": false,
                     "deprecationMessage": "",
                     "type": "StorybookConfig",
-                    "defaultValue": "{\n  stories: ['../src/lib/**/*.stories.@(js|jsx|ts|tsx|mdx)'],\n  addons: [\n    '@storybook/addon-links',\n    '@storybook/addon-essentials',\n    '@storybook/addon-interactions',\n    '@storybook/addon-a11y',],\n  framework: {\n    name: '@storybook/angular',\n    options: {},\n  },\n  docs: {\n    autodocs: 'tag',\n    defaultName: 'Docs',\n  },\n}"
+                    "defaultValue": "{\n  stories: ['../src/lib/**/*.stories.@(js|jsx|ts|tsx|mdx)'],\n  build: {\n    test:{\n\n      disableSourcemaps: false\n    }\n  },\n  addons: [\n    '@storybook/addon-links',\n    '@storybook/addon-essentials',\n    '@storybook/addon-interactions',\n    '@storybook/addon-a11y',],\n  framework: {\n    name: '@storybook/angular',\n    options: {},\n  },\n  docs: {\n    autodocs: 'tag',\n    defaultName: 'Docs',\n  },\n}"
                 }
             ],
             "libs/str/src/lib/button/button-str.component.stories.ts": [
@@ -510,7 +514,7 @@
                     "deprecated": false,
                     "deprecationMessage": "",
                     "type": "Meta<ButtonStrComponent>",
-                    "defaultValue": "{\n  component: ButtonStrComponent,\n  title: 'MyButtonComponent',\n  tags: ['autodocs'],\n  excludeStories: /.*Data$/,\n  render: (args: ButtonStrComponent) => ({\n    props: {\n      backgroundColor: null,\n      ...args,\n    },\n  }),\n  // decorators: [\n  //   moduleMetadata({\n  //     imports: [CommonModule, Str2Module]\n  //   }),\n  //   applicationConfig({\n  //     providers: [importProvidersFrom(Str2Module)]\n  //   }),\n  //   // use your injector here !!\n  //   injectInjectorToProps()\n  // ],\n  // render: (args: ButtonStrComponent) => ({\n  //   props: {\n  //     ...args,\n  //     onClicked: actionsData.onClicked\n  //     // getPropData: (injector: Injector) => {\n  //     //   console.log('jestem2')\n  //     //   // the injector is provided by the template and all services are now available\n  //     //   return injector.get(DataBuilder).getData();\n  //     // }\n  //   },\n  //   template: `<storybook-button-str ${argsToTemplate(args)}>/<storybook-button-str>`\n  // })\n}"
+                    "defaultValue": "{\n  component: ButtonStrComponent,\n  title: 'MyButtonComponent',\n  tags: ['autodocs'],\n  // excludeStories: /.*Data$/,\n  render: (args: ButtonStrComponent) => ({\n    props: {\n      backgroundColor: null,\n      ...args,\n    },\n  }),\n  // decorators: [\n  //   moduleMetadata({\n  //     imports: [CommonModule, Str2Module]\n  //   }),\n  //   applicationConfig({\n  //     providers: [importProvidersFrom(Str2Module)]\n  //   }),\n  //   // use your injector here !!\n  //   injectInjectorToProps()\n  // ],\n  // render: (args: ButtonStrComponent) => ({\n  //   props: {\n  //     ...args,\n  //     onClicked: actionsData.onClicked\n  //     // getPropData: (injector: Injector) => {\n  //     //   console.log('jestem2')\n  //     //   // the injector is provided by the template and all services are now available\n  //     //   return injector.get(DataBuilder).getData();\n  //     // }\n  //   },\n  //   template: `<storybook-button-str ${argsToTemplate(args)}>/<storybook-button-str>`\n  // })\n}"
                 },
                 {
                     "name": "Primary",
