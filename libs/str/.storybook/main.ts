@@ -2,11 +2,6 @@ import type { StorybookConfig } from '@storybook/angular';
 
 const config: StorybookConfig = {
   stories: ['../src/lib/**/*.stories.@(js|jsx|ts|tsx|mdx)'],
-  build: {
-    test: {
-      disableSourcemaps: false
-    }
-  },
   addons: [
     '@storybook/addon-links',
     '@storybook/addon-essentials',

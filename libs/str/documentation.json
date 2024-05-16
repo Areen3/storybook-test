@@ -320,7 +320,7 @@
                 "deprecated": false,
                 "deprecationMessage": "",
                 "type": "StorybookConfig",
-                "defaultValue": "{\n  stories: ['../src/lib/**/*.stories.@(js|jsx|ts|tsx|mdx)'],\n  build: {\n    test:{\n\n      disableSourcemaps: false\n    }\n  },\n  addons: [\n    '@storybook/addon-links',\n    '@storybook/addon-essentials',\n    '@storybook/addon-interactions',\n    '@storybook/addon-a11y',],\n  framework: {\n    name: '@storybook/angular',\n    options: {},\n  },\n  docs: {\n    autodocs: 'tag',\n    defaultName: 'Docs',\n  },\n}"
+                "defaultValue": "{\n  stories: ['../src/lib/**/*.stories.@(js|jsx|ts|tsx|mdx)'],\n  addons: [\n    '@storybook/addon-links',\n    '@storybook/addon-essentials',\n    '@storybook/addon-interactions',\n    '@storybook/addon-a11y'],\n  framework: {\n    name: '@storybook/angular',\n    options: {}\n  },\n  docs: {\n    autodocs: 'tag',\n    defaultName: 'Docs'\n  }\n}"
             },
             {
                 "name": "Heading",
@@ -356,21 +356,21 @@
                 "name": "meta",
                 "ctype": "miscellaneous",
                 "subtype": "variable",
-                "file": "libs/str/src/lib/button/button-str.component.stories.ts",
-                "deprecated": false,
-                "deprecationMessage": "",
-                "type": "Meta<ButtonStrComponent>",
-                "defaultValue": "{\n  component: ButtonStrComponent,\n  title: 'MyButtonComponent',\n  tags: ['autodocs'],\n  // excludeStories: /.*Data$/,\n  render: (args: ButtonStrComponent) => ({\n    props: {\n      backgroundColor: null,\n      ...args,\n    },\n  }),\n  // decorators: [\n  //   moduleMetadata({\n  //     imports: [CommonModule, Str2Module]\n  //   }),\n  //   applicationConfig({\n  //     providers: [importProvidersFrom(Str2Module)]\n  //   }),\n  //   // use your injector here !!\n  //   injectInjectorToProps()\n  // ],\n  // render: (args: ButtonStrComponent) => ({\n  //   props: {\n  //     ...args,\n  //     onClicked: actionsData.onClicked\n  //     // getPropData: (injector: Injector) => {\n  //     //   console.log('jestem2')\n  //     //   // the injector is provided by the template and all services are now available\n  //     //   return injector.get(DataBuilder).getData();\n  //     // }\n  //   },\n  //   template: `<storybook-button-str ${argsToTemplate(args)}>/<storybook-button-str>`\n  // })\n}"
-            },
-            {
-                "name": "meta",
-                "ctype": "miscellaneous",
-                "subtype": "variable",
                 "file": "libs/str/src/lib/button-org/Button.stories.ts",
                 "deprecated": false,
                 "deprecationMessage": "",
                 "type": "Meta<Button>",
                 "defaultValue": "{\n  title: 'Example/Button',\n  component: Button,\n  tags: ['autodocs'],\n  render: (args: Button) => ({\n    props: {\n      backgroundColor: null,\n      ...args,\n    },\n  }),\n  argTypes: {\n    backgroundColor: {\n      control: 'color',\n    },\n  },\n}"
+            },
+            {
+                "name": "meta",
+                "ctype": "miscellaneous",
+                "subtype": "variable",
+                "file": "libs/str/src/lib/button/button-str.component.stories.ts",
+                "deprecated": false,
+                "deprecationMessage": "",
+                "type": "Meta<ButtonStrComponent>",
+                "defaultValue": "{\n  component: ButtonStrComponent,\n  title: 'MyButtonComponent',\n  tags: ['autodocs'],\n  // excludeStories: /.*Data$/,\n  render: (args: ButtonStrComponent) => ({\n    props: {\n      backgroundColor: null,\n      ...args,\n    },\n  }),\n  // decorators: [\n  //   moduleMetadata({\n  //     imports: [CommonModule, Str2Module]\n  //   }),\n  //   applicationConfig({\n  //     providers: [importProvidersFrom(Str2Module)]\n  //   }),\n  //   // use your injector here !!\n  //   injectInjectorToProps()\n  // ],\n  // render: (args: ButtonStrComponent) => ({\n  //   props: {\n  //     ...args,\n  //     onClicked: actionsData.onClicked\n  //     // getPropData: (injector: Injector) => {\n  //     //   console.log('jestem2')\n  //     //   // the injector is provided by the template and all services are now available\n  //     //   return injector.get(DataBuilder).getData();\n  //     // }\n  //   },\n  //   template: `<storybook-button-str ${argsToTemplate(args)}>/<storybook-button-str>`\n  // })\n}"
             },
             {
                 "name": "preview",
@@ -380,17 +380,7 @@
                 "deprecated": false,
                 "deprecationMessage": "",
                 "type": "Preview",
-                "defaultValue": "{\r\n  parameters: {\r\n    actions: { argTypesRegex: \"^on[A-Z].*\" },\r\n    controls: {\r\n      matchers: {\r\n        color: /(background|color)$/i,\r\n        date: /Date$/,\r\n      },\r\n    },\r\n  },\r\n}"
-            },
-            {
-                "name": "Primary",
-                "ctype": "miscellaneous",
-                "subtype": "variable",
-                "file": "libs/str/src/lib/button/button-str.component.stories.ts",
-                "deprecated": false,
-                "deprecationMessage": "",
-                "type": "Story",
-                "defaultValue": "{\n  name: 'Moje story',\n  args: {\n    data: getData(),\n    disabled: false\n  }\n}"
+                "defaultValue": "{\n  parameters: {\n    actions: { argTypesRegex: \"^on[A-Z].*\" },\n    controls: {\n      matchers: {\n        color: /(background|color)$/i,\n        date: /Date$/,\n      },\n    },\n  },\n}"
             },
             {
                 "name": "Primary",
@@ -401,6 +391,16 @@
                 "deprecationMessage": "",
                 "type": "Story",
                 "defaultValue": "{\n  args: {\n    primary: true,\n    label: 'Button',\n  },\n}"
+            },
+            {
+                "name": "Primary",
+                "ctype": "miscellaneous",
+                "subtype": "variable",
+                "file": "libs/str/src/lib/button/button-str.component.stories.ts",
+                "deprecated": false,
+                "deprecationMessage": "",
+                "type": "Story",
+                "defaultValue": "{\n  name: 'Moje story',\n  args: {\n    data: getData(),\n    disabled: false\n  }\n}"
             },
             {
                 "name": "Secondary",
@@ -452,8 +452,8 @@
                 "name": "Story",
                 "ctype": "miscellaneous",
                 "subtype": "typealias",
-                "rawtype": "StoryObj<ButtonStrComponent>",
-                "file": "libs/str/src/lib/button/button-str.component.stories.ts",
+                "rawtype": "StoryObj<Button>",
+                "file": "libs/str/src/lib/button-org/Button.stories.ts",
                 "deprecated": false,
                 "deprecationMessage": "",
                 "description": "",
@@ -463,8 +463,8 @@
                 "name": "Story",
                 "ctype": "miscellaneous",
                 "subtype": "typealias",
-                "rawtype": "StoryObj<Button>",
-                "file": "libs/str/src/lib/button-org/Button.stories.ts",
+                "rawtype": "StoryObj<ButtonStrComponent>",
+                "file": "libs/str/src/lib/button/button-str.component.stories.ts",
                 "deprecated": false,
                 "deprecationMessage": "",
                 "description": "",
@@ -482,7 +482,7 @@
                     "deprecated": false,
                     "deprecationMessage": "",
                     "type": "StorybookConfig",
-                    "defaultValue": "{\n  stories: ['../src/lib/**/*.stories.@(js|jsx|ts|tsx|mdx)'],\n  build: {\n    test:{\n\n      disableSourcemaps: false\n    }\n  },\n  addons: [\n    '@storybook/addon-links',\n    '@storybook/addon-essentials',\n    '@storybook/addon-interactions',\n    '@storybook/addon-a11y',],\n  framework: {\n    name: '@storybook/angular',\n    options: {},\n  },\n  docs: {\n    autodocs: 'tag',\n    defaultName: 'Docs',\n  },\n}"
+                    "defaultValue": "{\n  stories: ['../src/lib/**/*.stories.@(js|jsx|ts|tsx|mdx)'],\n  addons: [\n    '@storybook/addon-links',\n    '@storybook/addon-essentials',\n    '@storybook/addon-interactions',\n    '@storybook/addon-a11y'],\n  framework: {\n    name: '@storybook/angular',\n    options: {}\n  },\n  docs: {\n    autodocs: 'tag',\n    defaultName: 'Docs'\n  }\n}"
                 }
             ],
             "libs/str/src/lib/button/button-str.component.stories.ts": [
@@ -588,7 +588,7 @@
                     "deprecated": false,
                     "deprecationMessage": "",
                     "type": "Preview",
-                    "defaultValue": "{\r\n  parameters: {\r\n    actions: { argTypesRegex: \"^on[A-Z].*\" },\r\n    controls: {\r\n      matchers: {\r\n        color: /(background|color)$/i,\r\n        date: /Date$/,\r\n      },\r\n    },\r\n  },\r\n}"
+                    "defaultValue": "{\n  parameters: {\n    actions: { argTypesRegex: \"^on[A-Z].*\" },\n    controls: {\n      matchers: {\n        color: /(background|color)$/i,\n        date: /Date$/,\n      },\n    },\n  },\n}"
                 }
             ]
         },
@@ -620,19 +620,6 @@
         },
         "groupedEnumerations": {},
         "groupedTypeAliases": {
-            "libs/str/src/lib/button/button-str.component.stories.ts": [
-                {
-                    "name": "Story",
-                    "ctype": "miscellaneous",
-                    "subtype": "typealias",
-                    "rawtype": "StoryObj<ButtonStrComponent>",
-                    "file": "libs/str/src/lib/button/button-str.component.stories.ts",
-                    "deprecated": false,
-                    "deprecationMessage": "",
-                    "description": "",
-                    "kind": 183
-                }
-            ],
             "libs/str/src/lib/button-org/Button.stories.ts": [
                 {
                     "name": "Story",
@@ -640,6 +627,19 @@
                     "subtype": "typealias",
                     "rawtype": "StoryObj<Button>",
                     "file": "libs/str/src/lib/button-org/Button.stories.ts",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "description": "",
+                    "kind": 183
+                }
+            ],
+            "libs/str/src/lib/button/button-str.component.stories.ts": [
+                {
+                    "name": "Story",
+                    "ctype": "miscellaneous",
+                    "subtype": "typealias",
+                    "rawtype": "StoryObj<ButtonStrComponent>",
+                    "file": "libs/str/src/lib/button/button-str.component.stories.ts",
                     "deprecated": false,
                     "deprecationMessage": "",
                     "description": "",

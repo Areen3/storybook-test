@@ -29,6 +29,7 @@
         "configDir": "libs/str/.storybook",
         "browserTarget": "comp:build-storybook",
         "compodoc": true,
+        "sourceMap": true,
         "compodocArgs": ["-e", "json", "-d", "libs/str"]
       },
       "configurations": {
